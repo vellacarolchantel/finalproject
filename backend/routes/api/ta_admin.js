@@ -21,26 +21,20 @@ router.post('/add', function (req, res) {
     let location = req.body.location;
     let phone = req.body.phone;
     let degree = req.body.degree;
-    let courses_applied_for = req.
 
 
     if (!first_name && !last_name && !email && !username){
-        error("Need to fill out all fields.")
+        error("Need to fill out all fields.");
     }else if(!first_name || !last_name || !email || !username){
-        error("Need to fill out specified fields.")
+        error("Need to fill out specified fields.");
     }
     // need to create a USER object
 
     // DOING NULL CHECKS AND EMPTY STRING CHECKS
-    let const stud1 = new Student({
-        roll_no: 1020,
-        name: 'Carol Chantel',
-        year: 4,
-        subjects: ['DBMS', 'OS', 'Graph Theory', 'Internet Programming']
-    });
+    
     // adding everything else after :)
- 
-};
-// updating a Ta's information 
+    // updating a Ta's information 
 
 // removing a Ta
+ 
+}

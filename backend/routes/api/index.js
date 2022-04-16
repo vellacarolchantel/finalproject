@@ -1,6 +1,6 @@
 const express = require("express");
-var server = require('express').Router();
-const app = express();
+const server = require('express').Router();
+
 
 //app.use("/",router);
 server.use('/ta_admin', require('./ta_admin'));

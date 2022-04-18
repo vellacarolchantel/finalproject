@@ -186,7 +186,7 @@ router.get('/view_tas_courses/ta', async function (req, res) {
 // Adding a Ta 
 router.post('/add_ta', function (req, res) {
     // search for a course ! 
-    let course = Course.find({ course_num: req.body.course_num}, {course_name : req.body.course_name}, {term_month_year : req.body.term_month_year});
+    let course = Course.find({ course_num: req.body.course_num}, {course_name : req.body.course_name});
 
     // search for a ta
     let ta = Ta.find({ student_id: req.body.student_id}, {ta_name : req.body.ta_name});
@@ -234,7 +234,7 @@ router.post('/add_ta', function (req, res) {
     
     if(taIsThere != 1){
         tas.push(ta.student_id);
-        Course.findOneAndUpdate({ course_name: req.body.course_name}, {term_month_year : req.body.term_month_year},{tas: tas})
+        Course.findOneAndUpdate({ course_name: req.body.course_name},{tas: tas})
     }
     res.sendStatus(200)
     res.send("Success")
@@ -244,7 +244,7 @@ router.post('/add_ta', function (req, res) {
 router.delete('/remove_ta', function (req, res){
 
     // search for a course ! 
-    let course = Course.find({ course_num: req.body.course_num}, {course_name : req.body.course_name}, {term_month_year : req.body.term_month_year});
+    let course = Course.find({ course_num: req.body.course_num}, {course_name : req.body.course_name});
 
     // search for a ta
     let ta = Ta.find({ student_id: req.body.student_id}, {ta_name : req.body.ta_name}, {term_month_year : course.term_month_year});
@@ -293,7 +293,7 @@ router.delete('/remove_ta', function (req, res){
     }
 
     if(taIsThere == 1){
-        Course.findOneAndUpdate({ course_name: req.body.course_name}, {term_month_year : req.body.term_month_year},{tas: new_ta_list})
+        Course.findOneAndUpdate({ course_name: req.body.course_name}, {tas: new_ta_list})
     }
     res.sendStatus(200)
     res.send("Success")

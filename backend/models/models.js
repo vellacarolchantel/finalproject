@@ -1,14 +1,14 @@
+// ***IMPORTANT*** COULD MAKE EVERYTHING REQUIRED https://mongoosejs.com/docs/guide.html#definition
 mongoose = require('mongoose');
 
 // COURSE 
 const courseSchema = new mongoose.Schema({
     course_num: Number, 
-    term_month_year: Number,
+    term_month_year: String,
     course_name: String,
     course_type: String,
-    semesters: [Semester],
     TA_quota: Number,
-    instructor_name: [String],
+    instructor_name: String,
     enrollment_num: Number,
     tas: [Ta],
 });
@@ -38,8 +38,9 @@ const taSchema = new mongoose.Schema({
     legal_name: String,
     grad_ugrad: String,
     student_id: Number,
-    term_month_year: Number, 
+    term_month_year: String, 
     supervisor_name: String,
+    email: String,
     priority: String, // could be a boolean
     hours: Number,
     date_applied: Number,
@@ -48,11 +49,15 @@ const taSchema = new mongoose.Schema({
     degree: String,
     courses_applied_for: [String],
     open_to_other_courses: String, //could be a boolean
-    assigned_responsibility: [Course],
+    assigned_responsibility: [String],
+    assigned_in_past: [String],
+    student_ratings: [Number],
     student_rating_average : Number,
     student_comments: [String],
     performance_log: [String],
-    ratings_received: Number
+    ratings_received: Number,
+    notes: [String],
+    wishlist:[[String,String]]
 });
 
 const Ta = mongoose.model('Ta', taSchema);
@@ -83,7 +88,7 @@ const Professor = mongoose.model('Professor', profSchema);
 // PERFORMANCE REPORTS
 
 const preportSchema = new mongoose.Schema({
-    term_month_year: Number,
+    term_month_year: String,
     TA_name: String,
     comment: String,
     course_num

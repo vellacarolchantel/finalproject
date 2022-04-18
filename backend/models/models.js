@@ -8,7 +8,7 @@ const courseSchema = new mongoose.Schema({
     course_name: String,
     course_type: String,
     TA_quota: Number,
-    instructor_name: [String],
+    instructor_name: String,
     enrollment_num: Number,
     tas: [Ta],
 });

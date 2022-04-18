@@ -1,16 +1,21 @@
 require("dotenv").config(); 
 const express = require("express");
-const app = express();
-app.listen(3000, () => console.log("Server is running"));
-
-
 const mongoose = require("mongoose");
 
-mongoose.connect(
-    process.env.MONGODB_URI, 
-    {
-        useNewUrlParser: true,
-        useUnifiedTopology: true
-    }
-);
+mongoose
+    .connect(
+        process.env.MONGODB_URI, 
+        {
+            useNewUrlParser: true,
+            useUnifiedTopology: true
+        }
+    ).then( () => {
+		const app = express();
+        app.use(express.json()) 
+		app.use("/api", require("./routes/api"))
+
+		app.listen(5000, () => {
+			console.log("Server has started!")
+		})
+	});
 

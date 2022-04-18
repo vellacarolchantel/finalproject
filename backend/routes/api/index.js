@@ -1,10 +1,9 @@
 const express = require("express");
-const server = require('express').Router();
-
+const server = express.Router();
 
 //app.use("/",router);
-server.use('/ta_admin', require('./ta_admin'));
-server.use('/ta_management', require('./ta_management'));
+server.use('ta_admin', require('./ta_admin'));
+server.use('ta_management', require('./ta_management'));
 
 server.use(function(err, req, res, next){
   if(err.name === 'ValidationError'){

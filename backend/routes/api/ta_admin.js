@@ -1,12 +1,10 @@
-//import {User, Ta, Course} from `../../models/models.js`;
 const csvtojson = require("csvtojson");
 const express = require("express");
 const bodyParser = require("body-parser");
 const router = require('express').Router();
 const mongoose = require('mongoose');
-const User = mongoose.model('User');
-const Ta = mongoose.model('Ta');
-const Course = mongoose.model('Course');
+const Ta = require("./../../models/Ta")
+const Course = require("./../../models/Course")
 
 // error function
 function error(message){
@@ -118,74 +116,77 @@ router.post("/import_tas", async function (req, res) {
             })
         }
     });
+    res.send("Courses and Tas have been uploaded! ")
   });
 
 
 // Viewing a specific Ta 
-// ** IMPORTANT ** do you want to do this by words 
-router.get('/view_ta', async function (req, res) {
+router.get('/view_tas', async function (req, res) {
     try {
-        const ta = Ta.find({ student_id: req.body.student_id});
-        if(!ta){
-            res.json(ta);
-        }else{
-            error("No Ta found.")
-        }
-       } catch (err) {
-        res.json({ error: err.message || err.toString() });
-       }
+        const tas = await Ta.find({student_id : req.body.student_id}).select("-student_ratings").then (res => {
+        res.send(tas);   
+        });
+    }catch (error) {
+        response.status(500).send(error);
+    }
 });
 
-// TO DO : view COURSE TA INFORMATION :)
-/*
-router.get('/view_all_tas', function (req, res) {
-    var tas = [];
-    Ta.findOne(student_id = student_id)
+// COURSE TA INFORMATION :)
+router.get('/view_tas_courses', async function (req, res) {
+    try {
+        const tas = await Ta.find({}).select(["student_id","ta_name","assigned_responsibility", "assigned_in_past"]).then (res => {
+        res.sendStatus(200)
+        res.send(tas);   
+        });
+    }catch (error) {
+        response.status(500).send(error);
+    }
+    res.sendStatus(200)
+    res.send("Success")
+});
 
-var Track = mongoose.model('Track', trackSchema);
-  Ta.find({}, function (err, records) {
-    records.forEach(function (post, i) {
-      track.push({
-        id: i,
-        title: post.title,
-        text: post.text.substr(0, 50) + '...'
-      });
-    });
-    res.json({
-      track: track
-    });
-  });
-};
-
-    return Ta.findOne({'_id' : id})
-        .select('ta_name assigned_responsibility assigned_in_past')
-        .exec(function(err, tas) {
-            if (err){
-                res.send(500);
-                return;
+// select Course 
+router.get('/view_tas_courses/course', async function (req, res) {
+    try {
+        const tas = await Course.find({course_num : req.body.course_num}, {course_type : req.body.course_type}).select(["tas"]).then (res => {
+            var obj = {
+                ta_names: [],
+                ta_ids: tas,
+             };
+            
+            for (var i = 0; i < tas.length; i++) {
+                const ta_name = Ta.find({student_id : ta[i]}).select("ta_name");
+                obj.ta_names.push(ta_name);
             }
-            return res.json({
-                tas : tas,
-            });
+           
         
-    });
-    */
-
-    /*
-    const tas_assigned_responsibility = Ta.assigned_responsibility;
-    const tas_assigned_past = Ta.assigned_in_past;
-    const tas_names = Ta.ta_name;
-
-
-    res.send({title: generatedEvent.title, description: generatedEvent.description});
-    */
-
+        res.sendStatus(200)
+        res.send(JSON.stringify(obj));   
+        });
+    }catch (error) {
+        response.status(500).send(error);
+    }
 });
+
+// select ta
+router.get('/view_tas_courses/ta', async function (req, res) {
+    try {
+        const ta = await Ta.find({student_id : req.body.student_id}).select(["student_id","ta_name","assigned_responsibility"]).then (res => {
+        res.sendStatus(200)
+        res.send(ta);   
+        });
+    }catch (error) {
+        response.status(500).send(error);
+    }
+    res.sendStatus(200)
+    res.send("Success")
+});
+
 
 // Adding a Ta 
 router.post('/add_ta', function (req, res) {
     // search for a course ! 
-    let course = Course.find({ course_name: req.body.course_name}, {term_month_year : req.body.term_month_year});
+    let course = Course.find({ course_num: req.body.course_num}, {course_name : req.body.course_name}, {term_month_year : req.body.term_month_year});
 
     // search for a ta
     let ta = Ta.find({ student_id: req.body.student_id}, {ta_name : req.body.ta_name});
@@ -203,10 +204,11 @@ router.post('/add_ta', function (req, res) {
     const in_present = ta.assigned_responsibility;
 
     // Removing course name from past courses if ta is now ta-ing it now
-    if(in_past.includes(course.course_name)){
+    var name = course.course_type + " " + course.course_num;
+    if(in_past.includes(name)){
         const new_course_list = [];
         for (var i = 0; i < in_past.length; i++) { 
-            if (in_past[i].localeCompare(course.course_name)){ 
+            if(!in_past[i].localeCompare(name)){ 
                 new_course_list.push(in_past[i]);
             }
         }
@@ -214,8 +216,8 @@ router.post('/add_ta', function (req, res) {
     }
 
     // If not in present classes, including it
-    if(!in_present.includes(course.course_name)){
-        in_present.push(course.course_name);
+    if(!in_present.includes(name)){
+        in_present.push(name);
     }
 
     // Updating the Ta database
@@ -225,22 +227,24 @@ router.post('/add_ta', function (req, res) {
     const tas = course.tas;
     const taIsThere = 0;
     for (var i = 0; i < tas.length; i++) { 
-        if (tas[i].legal_name == ta.legal_name && tas[i].student_id == ta.student_id){ 
+        if (tas[i] == ta.student_id){ 
             taIsThere = 1;
         }
     }
     
     if(taIsThere != 1){
-        tas.push(ta);
+        tas.push(ta.student_id);
         Course.findOneAndUpdate({ course_name: req.body.course_name}, {term_month_year : req.body.term_month_year},{tas: tas})
     }
+    res.sendStatus(200)
+    res.send("Success")
 })
 
 // Deleting a Ta in Course based on the Student ID and Name
 router.delete('/remove_ta', function (req, res){
 
     // search for a course ! 
-    let course = Course.find({ course_name: req.body.course_name}, {term_month_year : req.body.term_month_year});
+    let course = Course.find({ course_num: req.body.course_num}, {course_name : req.body.course_name}, {term_month_year : req.body.term_month_year});
 
     // search for a ta
     let ta = Ta.find({ student_id: req.body.student_id}, {ta_name : req.body.ta_name}, {term_month_year : course.term_month_year});
@@ -258,16 +262,17 @@ router.delete('/remove_ta', function (req, res){
     const in_past = ta.assigned_in_past;
     const in_present = ta.assigned_responsibility;
     
+    var name = course.course_type + " " + course.course_num;
     // Removing course name from present courses for ta
-    if(in_present.includes(course.course_name)){
+    if(in_present.includes(name)){
         const new_course_list = [];
         for (var i = 0; i < in_present.length; i++) { 
-            if (!in_present[i].localeCompare(course.course_name)){ 
+            if (!in_present[i].localeCompare(name)){ 
                 new_course_list.push(in_present[i]);
             }
         }
         in_present = new_course_list;
-        in_past.push(course.course_name)  
+        in_past.push(name)  
         
         // Updating the Ta database
         Ta.findOneAndUpdate({ student_id: req.body.student_id}, {ta_name : req.body.ta_name}, { assigned_in_past : in_past}, {in_present : in_present}, {term_month_year : course.term_month_year});
@@ -280,7 +285,7 @@ router.delete('/remove_ta', function (req, res){
     const taIsThere = 0;
     const new_ta_list = [];
     for (var i = 0; i < tas.length; i++) { 
-        if (tas[i].legal_name == ta.legal_name && tas[i].student_id == ta.student_id){ 
+        if (tas[i]== ta.student_id){ 
             taIsThere = 1;
         }else{
             new_ta_list.push(tas[i]);
@@ -290,4 +295,8 @@ router.delete('/remove_ta', function (req, res){
     if(taIsThere == 1){
         Course.findOneAndUpdate({ course_name: req.body.course_name}, {term_month_year : req.body.term_month_year},{tas: new_ta_list})
     }
+    res.sendStatus(200)
+    res.send("Success")
 });
+
+module.exports = router;

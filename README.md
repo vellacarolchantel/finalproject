@@ -6,6 +6,6 @@ Helping Profs manage TAs and TAs manage life at McGill. This tool allows profess
 
 **Developers:**
 * [Vella Abur](https://github.com/Sunnyeunice)
-* [Chantel Mayfair](https://github.com/chantelcode) 
+* [Chantel Wallack](https://github.com/chantelcode) 
 * [Carol Altimas](https://github.com/carolaltimas)
   

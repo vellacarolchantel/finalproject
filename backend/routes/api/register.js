@@ -13,4 +13,4 @@
 Submit button afterwards
 
 Should they be automatically redirected to the Dashboard after they press Submit?
- * /
+ */

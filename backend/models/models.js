@@ -70,17 +70,6 @@ const studentSchema = new mongoose.Schema({
 
 const Student = mongoose.model('Student', studentSchema);
 
-// PROFESSOR 
-const profSchema = new mongoose.Schema({
-    ratings_given: Number,
-    curr_courses : [Course],
-    name: String,
-    id: Number,
-    // For Chantel to fill out :)
-});
-
-const Professor = mongoose.model('Professor', profSchema);
-
 // TA ADMIN 
 
 // SYS_OP

@@ -1,7 +1,7 @@
 mongoose = require('mongoose');
 
 const taSchema = new mongoose.Schema({
-    id: Number,
+    id: String,
     ta_name: String,
     legal_name: String,
     grad_ugrad: String,

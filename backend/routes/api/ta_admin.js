@@ -1,6 +1,4 @@
 const csvtojson = require("csvtojson");
-const express = require("express");
-const bodyParser = require("body-parser");
 const router = require('express').Router();
 const mongoose = require('mongoose');
 const Ta = require("./../../models/Ta")
@@ -10,6 +8,7 @@ const Course = require("./../../models/Course")
 function error(message){
     return "Error : " + message;
 } 
+router.get("/carol", async function (req, res){ res.send("Hi carol")});
 // importing a bunch of Tas and courses
 router.post("/import_tas", async function (req, res) {
     const ta_cohort_csv = await req.body.ta_file;
@@ -20,7 +19,7 @@ router.post("/import_tas", async function (req, res) {
             //check if ta has made an account
             let user = User.find({ student_id: json[i].student_id})
             let ta = Ta.find({ student_id: json[i].student_id})
-            let id = -1; // id will be -1 if they don't have an account 
+            let id = 'none'; // id will be -1 if they don't have an account 
             
             // if the ta has made an account, use the corresponding id number + update access codes 
             if(!user){
@@ -106,6 +105,8 @@ router.post("/import_tas", async function (req, res) {
                 instructor_name: json[i].instructor_name,
                 enrollment_num: json[i].enrollment_num,
                 tas: [],
+                wishlist: [],
+                ta_names: []
             });
             newCourse.save(function(err){
                 if(err){
@@ -116,7 +117,8 @@ router.post("/import_tas", async function (req, res) {
             })
         }
     });
-    res.send("Courses and Tas have been uploaded! ")
+    res.sendStatus(200)
+    res.send("Success")
   });
 
 
@@ -186,10 +188,10 @@ router.get('/view_tas_courses/ta', async function (req, res) {
 // Adding a Ta 
 router.post('/add_ta', function (req, res) {
     // search for a course ! 
-    let course = Course.find({ course_num: req.body.course_num}, {course_name : req.body.course_name});
+    let course = Course.find({ course_num: req.body.course_num}, {course_type : req.body.course_type});
 
     // search for a ta
-    let ta = Ta.find({ student_id: req.body.student_id}, {ta_name : req.body.ta_name});
+    let ta = Ta.find({ student_id: req.body.student_id});
     
     if(!course && !ta){
         return error("Unable to find course and TA.")
@@ -234,7 +236,8 @@ router.post('/add_ta', function (req, res) {
     
     if(taIsThere != 1){
         tas.push(ta.student_id);
-        Course.findOneAndUpdate({ course_name: req.body.course_name},{tas: tas})
+        ta_names.push(ta.ta_name);
+        Course.findOneAndUpdate({ course_type: req.body.course_type},{ course_num: req.body.course_num},{tas: tas}, {ta_names: ta_names})
     }
     res.sendStatus(200)
     res.send("Success")
@@ -244,10 +247,10 @@ router.post('/add_ta', function (req, res) {
 router.delete('/remove_ta', function (req, res){
 
     // search for a course ! 
-    let course = Course.find({ course_num: req.body.course_num}, {course_name : req.body.course_name});
+    let course = Course.find({ course_num: req.body.course_num}, {course_num : req.body.course_num});
 
     // search for a ta
-    let ta = Ta.find({ student_id: req.body.student_id}, {ta_name : req.body.ta_name}, {term_month_year : course.term_month_year});
+    let ta = Ta.find({ student_id: req.body.student_id}, {term_month_year : course.term_month_year});
 
     if(!course && !ta){
         return error("Unable to find course and TA.")
@@ -282,18 +285,21 @@ router.delete('/remove_ta', function (req, res){
 
     // Handling the Course database 
     const tas = course.tas;
+    const ta_names = course.ta_names;
     const taIsThere = 0;
     const new_ta_list = [];
+    const new_ta_names_list = [];
     for (var i = 0; i < tas.length; i++) { 
         if (tas[i]== ta.student_id){ 
             taIsThere = 1;
         }else{
             new_ta_list.push(tas[i]);
+            new_ta_names_list.push(ta_names[i]);
         }
     }
 
     if(taIsThere == 1){
-        Course.findOneAndUpdate({ course_name: req.body.course_name}, {tas: new_ta_list})
+        Course.findOneAndUpdate({ course_num: req.body.course_num}, {course_type: req.body.course_type}, {tas: new_ta_list}, {ta_names : new_ta_names_list})
     }
     res.sendStatus(200)
     res.send("Success")

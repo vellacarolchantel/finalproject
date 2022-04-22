@@ -11,7 +11,9 @@ const courseSchema = new mongoose.Schema({
     TA_quota: Number,
     instructor_name: String,
     enrollment_num: Number,
+    wishlist:[],
     tas: [Number],
+    ta_names: [String]
 });
 
 const Course = mongoose.model('Course', courseSchema);

@@ -12,9 +12,10 @@ mongoose
     ).then( () => {
 		const app = express();
         app.use(express.json()) 
-		app.use("/api", require("./routes/api"))
+        app.use(require('./routes'));
+		//app.use("/api", require("./routes/api"))
 
-		app.listen(5000, () => {
+		app.listen(process.env.PORT || 5000, () => {
 			console.log("Server has started!")
 		})
 	});

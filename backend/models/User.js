@@ -1,5 +1,4 @@
 mongoose = require('mongoose');
-const Ta = mongoose.model('Ta');
 
 const userSchema = new mongoose.Schema({
     first_name: String,

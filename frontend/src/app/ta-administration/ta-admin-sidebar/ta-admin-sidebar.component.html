@@ -1,0 +1,120 @@
+<div id="page-container">
+  <div class="container">
+    <div class="row">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-12 visible-sm visible-xs d-block d-md-none">
+            <div id="drop" class="dropdown show">
+              <a
+                role="button"
+                id="dropdownMenuLink"
+                data-toggle="dropdown"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                <h5><b>TA Administration</b></h5>
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a
+                    class="dropdown-item"
+                    routerLink="/ta-administration/ta-cohort"
+                    >Import TA cohort</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    routerLink="/ta-administration/ta-info"
+                    >TA Info/history</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    routerLink="/ta-administration/ta-course-history"
+                    >Course TA history</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    routerLink="/ta-administration/ta-add-to-course"
+                    >Add TA to a course</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    routerLink="/ta-administration/ta-remove-from-course"
+                    >Remove TA from a Course</a
+                  >
+                </li>
+                <li>
+                  <a
+                    class="dropdown-item"
+                    routerLink="/ta-administration/ta-statistics"
+                    >Import Old TA statistics</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="container d-none d-md-block">
+        <div class="row">
+          <!-- <aside class=""> -->
+          <div class="list-group" id="sidebar">
+            <h4 class="d-none d-md-block"><b>TA Administration</b></h4>
+            <div class="sidebar-wrapper">
+              <nav>
+                <ul class="nolist d-none d-md-block">
+                  <li
+                    *ngFor="let link of links"
+                    [ngClass]="{ dropdown: link?.children?.length ?? 0 > 0 }"
+                    role="presentation"
+                    #parentLink
+                  >
+                    <a
+                      [routerLink]="link.route"
+                      routerLinkActive="active"
+                      (click)="
+                        link?.children?.length &&
+                          parentLink.classList.toggle('display-children')
+                      "
+                    >
+                      {{ link.text }}
+                      <span
+                        *ngIf="link?.children?.length"
+                        class="dropdown-arrow"
+                      >
+                      </span>
+                    </a>
+
+                    <!-- sub-menu -->
+                    <ul
+                      class="nolist d-none d-md-block"
+                      *ngIf="
+                        link?.children?.length &&
+                        parentLink.classList.contains('display-children')
+                      "
+                    >
+                      <li *ngFor="let link of link.children">
+                        <a [routerLink]="link.route" routerLinkActive="active">
+                          {{ link.text }}
+                        </a>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+          <!-- </aside> -->
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

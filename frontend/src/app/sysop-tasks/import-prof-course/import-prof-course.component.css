@@ -1,0 +1,121 @@
+.cohort-container {
+    margin-top: 10px;
+    position: relative;
+    padding-bottom: 60px;
+}
+
+@media (max-width:767px) {
+    .cohort-container {
+        display: inline-block;
+        padding: 0;
+    }
+    #sidebar,
+    #content-col {
+        width: 100%;
+        padding: 0;
+    }
+    #sidebar {
+        padding-left: 10px;
+        bottom: 0;
+        margin: 0;
+    }
+}
+
+@media (max-width:992px) {
+    #sidebar,
+    #content-col {
+        padding: 0;
+    }
+    #sidebar {
+        padding-left: 0px;
+        bottom: 0;
+        margin: 0;
+    }
+    .cohort-container {
+        /* display: inline-block; */
+        padding: 0;
+        margin: 0;
+        width: 100%;
+        /* padding-bottom: 100px; */
+    }
+}
+
+.content-area {
+    padding: 10px;
+    background: url(/assets/images/addWood.jpg) no-repeat;
+    background-size: cover;
+    height: 100%;
+    padding-bottom: 50px;
+}
+
+@media (max-width: 992px) {
+    .content-area {
+        /* background: url(/assets/images/folders1m.jpg) no-repeat;
+        background-size: cover; */
+    }
+}
+
+h1 {
+    padding-top: 30px;
+    margin-bottom: 20px;
+    /* text-align: right;
+    padding-right: 25%; */
+    background-color: red;
+    width: fit-content;
+    color: white;
+    padding: 10px;
+}
+
+@media (max-width:768px) {
+    h1 {
+        padding-top: 0px;
+        /* padding-right: 40%; */
+    }
+}
+
+img {
+    visibility: hidden;
+}
+
+#import-row {
+    padding-top: 30px;
+}
+
+#import-area {
+    padding-left: 10px;
+}
+
+
+/* m  [768, 992] */
+
+@media (max-width:992px) {
+    #import-row {
+        padding-top: 20px;
+        display: block;
+    }
+    #import-area {
+        /* padding-left: 100px; */
+        margin-bottom: 20px;
+    }
+}
+
+@media (max-width:767px) {
+    #import-row {
+        padding-top: 20px;
+        display: block;
+    }
+    #import-area {
+        /* padding-left: 100px; */
+        margin-bottom: 20px;
+        margin-right: 0;
+    }
+}
+
+.breadcrumb {
+    background-color: white;
+}
+
+ol li a {
+    text-decoration: none;
+    color: red;
+}

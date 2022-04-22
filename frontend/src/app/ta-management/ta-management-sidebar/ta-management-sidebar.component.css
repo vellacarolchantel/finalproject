@@ -1,0 +1,87 @@
+.nolist {
+    list-style: none;
+}
+
+@media (max-width: 992px) {
+    .nolist {
+        padding-left: 0;
+    }
+}
+
+.sidebar-wrapper {
+    /* max-width: 295px; */
+    margin-bottom: 50px
+}
+
+.sidebar-wrapper>ul li {
+    font-weight: 500
+}
+
+.sidebar-wrapper>ul>li {
+    border-top: 1px solid #e9e7e7;
+}
+
+.sidebar-wrapper nav>ul {
+    margin-bottom: 0
+}
+
+.sidebar-wrapper nav>ul>li {
+    border-top: 1px solid #e9e7e7;
+    font-weight: 500
+}
+
+.sidebar-wrapper nav>ul>li:first-child {
+    border: 0
+}
+
+.sidebar-wrapper nav>ul>li>a {
+    color: #1f1a17;
+    display: block;
+    padding: 20px 20px
+}
+
+@media (max-width: 992px) {
+    .sidebar-wrapper nav>ul>li>a {
+        padding: 10px 0px
+    }
+}
+
+.sidebar-wrapper nav>ul>li>a:hover {
+    color: #fff;
+    /* background: #ed145b; */
+    background: red;
+}
+
+a {
+    text-decoration: none;
+}
+
+@media (min-width: 768px) {
+    .dropdown:hover .dropdown-menu {
+        width: 80%;
+        display: block;
+        margin-top: 0;
+        cursor: pointer;
+        /* background: red; */
+    }
+    .dropdown-menu a {
+        color: #000;
+        /* padding: 10px; */
+        width: 100%;
+    }
+    .dropdown-menu a:hover {
+        color: red;
+    }
+}
+
+#drop {
+    width: 100%;
+    background: #ffffff url(https://raw.githubusercontent.com/solodev/mobile-sidebar-navigation/master/drop-arrow.png) right no-repeat;
+    left: -20px;
+    right: -20px;
+    height: 55px;
+    color: #000;
+    margin: 15px 0;
+    padding: 13px;
+    border: 1px solid #333;
+}

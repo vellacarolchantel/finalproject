@@ -1,0 +1,109 @@
+.info-container {
+    margin-top: 10px;
+    position: relative;
+    padding-bottom: 60px;
+}
+
+@media (max-width:767px) {
+    .info-container {
+        display: inline-block;
+        padding: 0;
+    }
+    #sidebar,
+    #content-col {
+        width: 100%;
+        padding: 0;
+    }
+    #sidebar {
+        padding-left: 10px;
+        bottom: 0;
+        margin: 0;
+    }
+}
+
+@media (max-width:992px) {
+    #sidebar,
+    #content-col {
+        padding: 0;
+    }
+    #sidebar {
+        padding-left: 0px;
+        bottom: 0;
+        margin: 0;
+    }
+    .info-container {
+        padding: 0;
+        margin: 0;
+        width: 100%;
+    }
+}
+
+.content-area {
+    padding: 10px;
+    background: url(/assets/images/pins.jpg) no-repeat;
+    background-size: cover;
+    height: 100%;
+    padding-bottom: 30px;
+}
+
+@media (max-width: 992px) {
+    .content-area {
+        background: url(/assets/images/glassLaptopMo.jpg) no-repeat;
+        background-size: cover;
+    }
+    h1 {
+        color: white;
+    }
+}
+
+h1 {
+    padding-top: 40px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+@media (max-width:767px) {
+    h1 {
+        padding-top: 20px;
+        padding-right: 0;
+        text-align: center;
+        color: black;
+    }
+}
+
+@media (max-width:768px) {
+    #search-area {
+        margin-top: 60px;
+    }
+}
+
+p {
+    font-size: 16px;
+    text-align: center;
+    padding-right: 10px;
+}
+
+@media (max-width:992px) {
+    p {
+        background-color: black;
+        padding: 10px 0px;
+        color: white;
+    }
+}
+
+.breadcrumb {
+    background-color: white;
+}
+
+ol li a {
+    text-decoration: none;
+    color: red;
+}
+
+#student_id {
+    width: 50%;
+}
+
+#search-area {
+    padding-left: 30%;
+}

@@ -1,0 +1,13 @@
+form {
+    background: url(/assets/images/net.jpg) no-repeat;
+    background-size: cover;
+}
+
+.btn {
+    background: red;
+    color: white;
+}
+
+h2 {
+    text-align: center;
+}

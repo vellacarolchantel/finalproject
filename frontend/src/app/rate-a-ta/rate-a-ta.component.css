@@ -1,0 +1,200 @@
+                #page-container {
+                    margin-top: 10px;
+                    position: relative;
+                    padding-bottom: 60px;
+                    text-decoration: none;
+                }
+                
+                @media (max-width:767px) {
+                    #page-container {
+                        display: inline-block;
+                        /* padding: 0; */
+                        margin: 0;
+                        width: 100%;
+                    }
+                }
+                
+                #heading {
+                    text-decoration: none;
+                    font-size: 16px;
+                    margin-top: 10px;
+                    margin-bottom: 10px;
+                }
+                
+                #nav-column>ul {
+                    font-size: 0.65em;
+                    margin: 0;
+                    padding: 0;
+                    border: 0;
+                }
+                
+                ul .menu {
+                    list-style: none;
+                }
+                
+                #nav-column li {
+                    /* border-bottom: 1px dotted #979797; */
+                    list-style: none;
+                    padding-left: 0;
+                    border: 0;
+                    color: black !important;
+                }
+                
+                #nav-column a,
+                #nav-column a:link {
+                    display: block;
+                    font-size: 14px;
+                    margin: 0;
+                    padding: 0.75em 0;
+                    text-transform: none;
+                    text-decoration: none;
+                    /* line-height: 1.5; */
+                }
+                
+                a,
+                a:link {
+                    text-decoration: underline;
+                    color: #000;
+                    font-weight: inherit;
+                }
+                
+                @media (max-width: 768px) {
+                    #nav-menu a.btn-nav,
+                    #nav-menu a.btn-nav:link,
+                    #nav-menu a.btn-nav:hover,
+                    #nav-menu a.btn-nav:visited {
+                        background: #000;
+                        color: #FFF;
+                        margin: 0 10px;
+                        text-transform: uppercase;
+                        text-align: center;
+                        font-size: 0.85em;
+                    }
+                    #nav-column a,
+                    #nav-column a:link,
+                    #nav-column a:visited {
+                        display: block;
+                        font-size: 1.25em;
+                        margin: 0;
+                        padding: 0.75em 0;
+                        text-transform: none;
+                        text-decoration: none;
+                        line-height: 1.5;
+                        color: #FFF;
+                    }
+                    .transition a {
+                        transform: all ease-in-out 0.3s;
+                    }
+                    #heading {
+                        visibility: hidden;
+                        display: none;
+                    }
+                    #nav-menu {
+                        display: block;
+                        width: 100%;
+                        text-align: center;
+                    }
+                    /* .nav-down {
+                    display: contents
+                } */
+                    .state-hide {
+                        display: none;
+                        visibility: hidden;
+                    }
+                }
+                
+                @media (min-width: 768px) {
+                    .active-trail {
+                        display: none;
+                        visibility: hidden;
+                    }
+                    .nav-down {
+                        display: none;
+                        visibility: hidden;
+                    }
+                }
+                
+                .rate {
+                    float: left;
+                    height: 46px;
+                    padding: 10px 0px;
+                    padding-right: 70%;
+                }
+                
+                .rate:not(:checked)>input {
+                    position: absolute;
+                    top: -9999px;
+                }
+                
+                .rate:not(:checked)>label {
+                    float: right;
+                    padding-top: 10px;
+                    width: 1.2em;
+                    overflow: hidden;
+                    white-space: nowrap;
+                    cursor: pointer;
+                    font-size: 30px;
+                    /* color: #ccc; */
+                    border-color: black;
+                }
+                
+                .rate:not(:checked)>label:before {
+                    content: '★ ';
+                }
+                
+                .rate>input:checked~label {
+                    /* color: #ffc700; */
+                    color: red;
+                }
+                
+                .rate:not(:checked)>label:hover,
+                .rate:not(:checked)>label:hover~label {
+                    /* color: #deb217; */
+                    color: rgb(214, 36, 36);
+                }
+                
+                .rate>input:checked+label:hover,
+                .rate>input:checked+label:hover~label,
+                .rate>input:checked~label:hover,
+                .rate>input:checked~label:hover~label,
+                .rate>label:hover~input:checked~label {
+                    color: #c59b08;
+                }
+                
+                #image {
+                    background: url(/assets/images/rating.jpg) no-repeat;
+                    background-size: cover;
+                }
+                
+                strong {
+                    background-color: red;
+                    padding: 10px;
+                    color: white;
+                }
+                
+                .main-content {
+                    background: url(/assets/images/leaf.jpg) no-repeat;
+                    background-size: cover;
+                }
+                
+                @media (max-width:767px) {
+                    .main-content {
+                        display: inline-block;
+                        padding: 0;
+                        margin: 0;
+                        width: 100%;
+                    }
+                    #content-col {
+                        width: 100%;
+                        padding: 0;
+                    }
+                    .rate {
+                        padding-right: 30%;
+                    }
+                    strong {
+                        background-color: transparent;
+                        padding: 0px;
+                        /* color: white; */
+                        color: black;
+                    }
+                }

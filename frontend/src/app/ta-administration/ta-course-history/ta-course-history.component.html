@@ -1,0 +1,80 @@
+<app-header></app-header>
+<app-navigation-bar></app-navigation-bar>
+
+<div class="course-container">
+    <div class="container">
+        <div class="row">
+            <div aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a routerLink="/">MyTa</a></li>
+                    <li class="breadcrumb-item"><a routerLink="/ta-administration">TA Administration</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Course History</li>
+                </ol>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-3" id="sidebar">
+                <app-ta-admin-sidebar></app-ta-admin-sidebar>
+            </div>
+            <div class="col-9" id="content-col">
+                <div class="content-area ">
+                    <div class="dynamicDiv" id="dd.0.4.1"></div>
+                    <article>
+                        <div class="container">
+                            <div class="row">
+                                <div class="main-content">
+                                    <h1> <b>Lookup Course TA History </b> </h1>
+                                    <div id="search-area" class="container">
+                                        <p>Enter TA ID or Name:</p>
+                                        <input class="form-control" id="myInput" type="text" placeholder="Search..">
+                                        <br>
+
+                                        <table class="table table-bordered table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th>TA ID</th>
+                                                    <th>Full Name</th>
+                                                    <th>Current Course</th>
+                                                    <th>Previous Course</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="myTable">
+                                                <tr>
+                                                    <td>28340487874</td>
+                                                    <td>John Doe</td>
+                                                    <td>COMP 303</td>
+                                                    <td>COMP 307</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>28340487809</td>
+                                                    <td>Mary Moe</td>
+                                                    <td>COMP 302</td>
+                                                    <td>COMP 250</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>28340487897</td>
+                                                    <td>Julie Dooley</td>
+                                                    <td>COMP 310</td>
+                                                    <td>COMP 202</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>28340487889</td>
+                                                    <td>Bonny Ravendale</td>
+                                                    <td>COMP 350</td>
+                                                    <td>COMP 589</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-footer></app-footer>

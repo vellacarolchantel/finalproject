@@ -1,0 +1,148 @@
+    /* body {
+    font-family: Helvetica, Helvetica, Arial, sans-serif;
+    font-size: 1.8rem;
+    line-height: 28px;
+} */
+    
+    .nolist {
+        list-style: none;
+    }
+    
+    .sidebar-wrapper {
+        max-width: 295px;
+        margin-bottom: 50px
+    }
+    
+    @media (max-width:991px) {
+        .sidebar-wrapper {
+            width: 100%;
+            max-width: 992px;
+            margin-bottom: 0
+        }
+    }
+    
+    .sidebar-wrapper>ul li {
+        font-size: 1.8rem;
+        font-weight: 500
+    }
+    
+    .sidebar-wrapper>ul>li {
+        border-top: 1px solid #e9e7e7;
+        font-weight: 500
+    }
+    
+    .sidebar-wrapper nav>ul {
+        /* font-family: Montserrat, sans-serif; */
+        margin-bottom: 0
+    }
+    
+    .sidebar-wrapper nav>ul li {
+        font-size: 1.8rem;
+        font-weight: 500
+    }
+    
+    .sidebar-wrapper nav>ul>li {
+        border-top: 1px solid #e9e7e7;
+        font-weight: 500
+    }
+    
+    .sidebar-wrapper nav>ul>li:first-child {
+        border: 0
+    }
+    
+    .sidebar-wrapper nav>ul>li>a {
+        color: #1f1a17;
+        display: block;
+        padding: 20px 20px
+    }
+    
+    .sidebar-wrapper nav>ul>li>a:hover {
+        color: #fff;
+        background: #ed145b;
+    }
+    
+    select#sub-menu {
+        width: 100%;
+        height: 55px;
+        color: #000;
+        margin: 15px 0;
+        padding: 13px;
+        border: 1px solid #333;
+        appearance: none;
+        text-overflow: '';
+        /* background: url(https://raw.githubusercontent.com/solodev/mobile-sidebar-navigation/master/drop-arrow.png) right no-repeat; */
+    }
+    
+    select#sub-menu,
+    select#sub-menu>option {
+        font-family: Helvetica, Helvetica, Arial, sans-serif;
+        font-size: 1.8rem;
+        line-height: 28px;
+    }
+    
+    select#sub-menu,
+    select#sub-menu>option {
+        font-family: Helvetica, Helvetica, Arial, sans-serif;
+        font-size: 1.8rem;
+        line-height: 28px;
+    }
+    
+    a {
+        text-decoration: none;
+    }
+    /* .fa-fw {
+        width: 1.2857142857em;
+        text-align: center;
+    }
+    
+    .fa {
+        display: inline-block;
+        font: normal normal normal 14px/1 FontAwesome;
+        font-size: inherit;
+        text-rendering: auto;
+    } */
+    /* @media (max-width: 768px) {
+        #nav-menu a.btn-nav,
+        #nav-menu a.btn-nav:link,
+        #nav-menu a.btn-nav:hover,
+        #nav-menu a.btn-nav:visited {
+            background: #000;
+            color: #FFF;
+            margin: 0 10px;
+            text-transform: uppercase;
+            text-align: center;
+            font-size: 0.85em;
+        }
+        #nav-column a,
+        #nav-column a:link,
+        #nav-column a:visited {
+            display: block;
+            font-size: 1.25em;
+            margin: 0;
+            padding: 0.75em 0;
+            text-transform: none;
+            text-decoration: none;
+            line-height: 1.5;
+            color: #FFF;
+        }
+        .transition a {
+            transform: all ease-in-out 0.3s;
+        }
+        #heading {
+            visibility: hidden;
+            display: none;
+        }
+        #nav-menu {
+            display: block;
+            width: 100%;
+            text-align: center;
+        }
+        .state-hide {
+            display: none;
+            visibility: hidden;
+        }
+        #nav-column {
+            z-index: 9999;
+            transition: top 0.2s ease-in-out;
+        }
+    } */

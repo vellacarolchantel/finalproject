@@ -1,0 +1,66 @@
+<app-header></app-header>
+<app-navigation-bar></app-navigation-bar>
+
+<div class="search-container">
+  <div class="container">
+    <div class="row">
+      <div aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a routerLink="/">MyTa</a></li>
+          <li class="breadcrumb-item">
+            <a routerLink="/ta-administration">TA Administration</a>
+          </li>
+          <li class="breadcrumb-item">
+            <a routerLink="/ta-administration/ta-course-history"
+              >Course History</a
+            >
+          </li>
+          <li class="breadcrumb-item active" aria-current="page">TA Search</li>
+        </ol>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-3" id="sidebar">
+        <app-ta-admin-sidebar></app-ta-admin-sidebar>
+      </div>
+      <div class="col-9" id="content-col">
+        <div class="content-area">
+          <div class="dynamicDiv" id="dd.0.4.1">
+            <article>
+              <div class="container">
+                <div class="row">
+                  <div class="main-content">
+                    <h1><b>Search TA Courses</b></h1>
+                    <div id="search-area" class="container">
+                      <form>
+                        <div class="form-group row">
+                          <label for="taID">Enter TA ID:</label>
+                          <input
+                            class="form-control"
+                            id="taIDInput"
+                            [formControl]="searchControl"
+                            type="number"
+                            class="form-control"
+                            id="taID"
+                            placeholder="000000000"
+                          />
+                        </div>
+                        <div id="search-button">
+                          <button routerLinkActive="active" type="submit">
+                            Search
+                          </button>
+                        </div>
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>

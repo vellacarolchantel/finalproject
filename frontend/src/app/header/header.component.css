@@ -1,0 +1,128 @@
+        #header-background {
+            background: url("/assets/images/finalBg.jpg"), no-repeat;
+            background-size: cover;
+            background-position: center;
+            width: 100%;
+            position: relative;
+            background-color: rgb(195, 221, 240);
+        }
+        
+        @media (max-width: 992px) {
+            #header-background {
+                text-align: center;
+                width: 100%;
+                display: block;
+                padding: 0;
+            }
+        }
+        /* @media only screen and (max-width: 680px) {
+        #header-background {
+            text-align: center;
+        }
+    } */
+        
+        .container {
+            /* margin-left: 0; */
+            padding-left: 0;
+            padding-right: 0;
+        }
+        
+        .row {
+            margin: 0;
+            padding: 0;
+        }
+        
+        .header-items {
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+        
+        @media (max-width: 680px) {
+            .header-items {
+                flex-flow: row nowrap;
+                /* width: 100%; */
+            }
+        }
+        
+        #cs-logo {
+            margin-top: 20px;
+            height: 90px;
+            margin-bottom: 0;
+        }
+        
+        @media (max-width: 992px) {
+            #cs-logo {
+                width: 100%;
+                margin: 0;
+            }
+        }
+        
+        #ta-logo {
+            align-self: center;
+            margin-top: -10px;
+        }
+        
+        #myTalogo {
+            height: 90px;
+            padding-top: 0;
+            margin-top: 0;
+            padding-left: 20px;
+        }
+        
+        @media (max-width: 992px) {
+            #myTalogo {
+                height: 80px;
+            }
+            #ta-logo {
+                margin-top: 15px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            #myTalogo {
+                height: 60px;
+                margin-left: -20px;
+            }
+        }
+        /* #logo li {
+        float: left;
+    } */
+        /* #header-item1 {
+        width: 40%;
+    } */
+        /*     
+    @media (max-width: 992px) {
+        #header-item1,
+        #header-item2,
+        #header-item3,
+        #empty-item {
+            width: 100%;
+        }
+    } */
+        /* #header-item2 {
+        width: 40%;
+        margin-top: 0;
+    }
+    
+    #header-item3 {
+        width: 20%;
+        padding-left: 20px;
+    } */
+        /* #logo li a {
+        position: relative;
+        display: block;
+    } */
+        
+        @media (max-width: 992px) {
+            #item3 {
+                margin-right: 20px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            #item3 {
+                margin-right: 0px;
+            }
+        }

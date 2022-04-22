@@ -1,0 +1,150 @@
+    .select-container {
+        margin-top: 10px;
+        position: relative;
+        padding-bottom: 60px;
+    }
+    
+    @media (max-width:767px) {
+        .select-container {
+            display: inline-block;
+            padding: 0;
+        }
+        #sidebar,
+        #content-col {
+            width: 100%;
+            padding: 0;
+        }
+        #sidebar {
+            padding-left: 10px;
+            bottom: 0;
+            margin: 0;
+        }
+    }
+    
+    @media (max-width:992px) {
+        #sidebar,
+        #content-col {
+            padding: 0;
+        }
+        #sidebar {
+            padding-left: 0px;
+            bottom: 0;
+            margin: 0;
+        }
+        .info-container {
+            padding: 0;
+            margin: 0;
+            width: 100%;
+        }
+    }
+    
+    @media (max-width: 992px) {
+        h1 {
+            padding-top: 0px;
+        }
+    }
+    
+    h1 {
+        padding-top: 10px;
+        margin-bottom: 20px;
+        padding-left: 10%;
+        /* text-align: center; */
+    }
+    
+    @media (max-width:767px) {
+        h1 {
+            padding-top: 20px;
+            padding-right: 0;
+            text-align: center;
+            color: black;
+        }
+    }
+    
+    @media (max-width:768px) {
+        h1 {
+            padding: 10px;
+            background: red;
+            color: white;
+            margin-top: 10px;
+        }
+    }
+    
+    .breadcrumb {
+        background-color: white;
+    }
+    
+    ol li a {
+        text-decoration: none;
+        color: red;
+    }
+    
+    button {
+        font-weight: bold;
+        padding: 10px;
+        color: white;
+        background-color: red;
+        border-radius: 100%;
+        width: 50%;
+        margin-bottom: 40px;
+        height: 100px;
+    }
+    
+    @media (max-width:768px) {
+        .form-group {
+            width: 100%;
+        }
+        button {
+            border-radius: 0%;
+            width: fit-content;
+            background-color: rgb(154, 149, 149);
+            color: black;
+        }
+    }
+    /* #item {
+        padding-left: 10%;
+    }
+    
+    #item3 {
+        padding-left: 20%;
+    }
+    
+    #item4 {
+        padding-left: 30%;
+    }*/
+    
+    #item5 {
+        padding-left: 20%;
+    }
+    
+    #exit {
+        text-align: right;
+    }
+    
+    #exit a {
+        text-decoration: none;
+        background: red;
+        padding: 10px;
+        font-weight: bold;
+        font-size: 16px;
+        color: white;
+        border-radius: 20%;
+    }
+    
+    .content-area {
+        background: url("/assets/images/net.jpg") no-repeat;
+        background-size: cover;
+        padding-left: 10%;
+        padding-bottom: 10px;
+    }
+    
+    @media (max-width:768px) {
+        .content-area {
+            padding-left: 0;
+        }
+        #items {
+            width: 100%;
+        }
+        #item5 {
+            padding-left: 35%;
+        }
+    }

@@ -1,0 +1,125 @@
+.select-container {
+    margin-top: 10px;
+    position: relative;
+    padding-bottom: 60px;
+}
+
+@media (max-width:767px) {
+    .select-container {
+        display: inline-block;
+        padding: 0;
+    }
+    #sidebar,
+    #content-col {
+        width: 100%;
+        padding: 0;
+    }
+    #sidebar {
+        padding-left: 10px;
+        bottom: 0;
+        margin: 0;
+    }
+}
+
+@media (max-width:992px) {
+    #sidebar,
+    #content-col {
+        padding: 0;
+    }
+    #sidebar {
+        padding-left: 0px;
+        bottom: 0;
+        margin: 0;
+    }
+    .select-container {
+        padding: 0;
+        margin: 0;
+        width: 100%;
+    }
+}
+
+.content-area {
+    padding: 10px;
+    /* background: url(/assets/images/glassBlue.jpg) no-repeat;
+    background-size: cover; */
+    height: 100%;
+    padding-bottom: 30px;
+}
+
+@media (max-width: 992px) {
+    h1 {
+        padding-top: 0px;
+    }
+}
+
+h1 {
+    padding-top: 30px;
+    margin-bottom: 20px;
+}
+
+b {
+    background-color: red;
+    padding: 10px;
+    color: white;
+}
+
+@media (max-width:768px) {
+    #search-area {
+        padding-left: 0%;
+    }
+    h1 {
+        padding: 10px;
+        background: red;
+        color: white;
+    }
+}
+
+table {
+    visibility: hidden;
+}
+
+.breadcrumb {
+    background-color: white;
+}
+
+#search-area {
+    align-items: center;
+}
+
+label {
+    font-size: 18px;
+    padding: 20px;
+}
+
+ol li a {
+    text-decoration: none;
+    color: red;
+}
+
+#search-button {
+    padding-left: 35%;
+    padding-top: 20px;
+}
+
+button {
+    font-weight: bold;
+    padding: 10px;
+    color: white;
+    background-color: red;
+}
+
+
+/* .form-group {
+    width: 50%;
+} */
+
+@media (max-width:768px) {
+    .form-group {
+        width: 100%;
+    }
+    .image {
+        padding: 0;
+    }
+}
+
+@media (max-width:992px) {}

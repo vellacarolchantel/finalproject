@@ -1,0 +1,88 @@
+<div class="page-container">
+    <div id="header-container">
+        <div class="container">
+            <div class="header-items">
+                <div class="logo">
+                    <a id="cs-logo" href="https://www.cs.mcgill.ca/"><img style="max-width: 100%" src="/assets/images/McGill-CS.png" /></a>
+                </div>
+                <div class="myta">
+                    <a id="ta-logo" href="/"><img id="myTalogo" src="/assets/images/final.png" /></a>
+                </div>
+                <div></div>
+            </div>
+        </div>
+    </div>
+    <div id="content-area">
+        <div class="container">
+            <div class="login-box">
+                <div class="title">
+                    <h2>Welcome to myTA</h2>
+                    <h3>SOCS's TA Management System</h3>
+                </div>
+                <form [formGroup]="form" (ngSubmit)="form.valid && loginUser()" #localForm="ngForm">
+                    <div [class]="'alert ' + alertClass" role="alert" *ngIf="showAlert">
+                        {{ alertMessage }}
+                    </div>
+
+                    <!-- Username input -->
+                    <div class="form-group row">
+                        <label for="username">Username</label>
+                        <input id="userNameInput" formControlName="username" type="email" class="form-control" id="username" [class.is-invalid]="
+                localForm.submitted && form.get('username')?.invalid
+              " placeholder="McGill Email" required />
+                        <div class="invalid-feedback">Username is required</div>
+                    </div>
+
+                    <!-- Password input -->
+                    <div class="form-group row">
+                        <label for="password">Password</label>
+                        <input type="password" class="form-control" id="password" placeholder="Password" formControlName="password" required />
+                        <div class="invalid-feedback">Password is required</div>
+                    </div>
+
+                    <div class="row mb-4">
+                        <div class="col d-flex justify-content-center">
+                            <!-- Checkbox -->
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="rememberMe" />
+                                <label class="form-check-label" for="rememberMe">
+                  Remember me
+                </label>
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <!-- Simple link -->
+                            <a [routerLink]="['./']">Forgot password?</a>
+                        </div>
+                    </div>
+                    <div class="login-register">
+                        <div class="col-md-6">
+                            <button type="submit">
+                <span> Login </span>
+                <div
+                  class="spinner-border text-primary"
+                  role="status"
+                  style="margin-left: 16px; width: 1rem; height: 1rem"
+                  *ngIf="logging"
+                >
+                  <span class="sr-only">Loading...</span>
+                </div>
+              </button>
+                        </div>
+                        <div class="col-md-6">
+                            <button type="button" routerLink="/register-page" style="color: black">
+                Register
+              </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <a style="visibility: hidden">hahahahaah</a>
+    </div>
+</div>
+
+<router-outlet></router-outlet>

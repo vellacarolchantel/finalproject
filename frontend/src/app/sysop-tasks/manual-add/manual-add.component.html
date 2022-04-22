@@ -1,0 +1,67 @@
+<app-header>
+</app-header>
+<app-navigation-bar></app-navigation-bar>
+
+<div class="info-container">
+    <div class="container">
+        <div class="row">
+            <div aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a routerLink="/">MyTa</a></li>
+                    <li class="breadcrumb-item"><a routerLink="/sysop-tasks">Sysyop Tasks</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Add Prof</li>
+                </ol>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="col-3" id="sidebar">
+                <!-- <app-sysop-sidebar></app-sysop-sidebar> -->
+            </div>
+            <div class="col-9" id="content-col">
+                <div class="content-area ">
+                    <div class="container">
+                        <div class="row">
+                            <div class="main-content">
+                                <h1> <b>Manual Add Professor + Course</b> </h1>
+                                <div id="search-area" class="container">
+                                    <form>
+                                        <div class="form-group row">
+                                            <div id="course_type " class="col-md-6 col-sm-12">
+                                                <label for="course_type">Enter Course Type:</label>
+                                                <input class="form-control" id="course_typeInput" formControlName="course_type" type="text" class="form-control" id="course_type" placeholder="COMP" />
+                                            </div>
+                                            <div id="course_num item " class="col-md-6 col-sm-12">
+                                                <label for="course_num">Enter Course Number:</label>
+                                                <input class="form-control" id="course_numInput" formControlName="course_num" type="number" class="form-control" id="course_num" placeholder="307" />
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <div id="TA_name " class="col-md-6 col-sm-12">
+                                                <label for="instructor_assigned_name ">Enter Instructor Name:</label>
+                                                <input class="form-control" id="instructor_assigned_nameInput" formControlName="instructor_assigned_name " type="text" class="form-control" id="instructor_assigned_name " placeholder="Joseph Vybihal" />
+                                            </div>
+                                            <div id="term_month_year" class="col-md-6 col-sm-12">
+                                                <label for="term_month_year">Enter Semester/Term:</label>
+                                                <input class="form-control" id="term_month_yearInput" formControlName="term_month_year" type="text" class="form-control" id="term_month_year" placeholder="WINTER2022" />
+                                            </div>
+
+                                        </div>
+
+                                        <div class="row">
+                                            <div>
+                                                <button routerLinkActive="active" routerLink="/sysop-tasks/manual-add" type="submit">Manual Add</button>
+                                            </div>
+
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <app-footer></app-footer>

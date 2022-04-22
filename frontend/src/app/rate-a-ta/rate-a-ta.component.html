@@ -1,0 +1,81 @@
+<app-header></app-header>
+<app-navigation-bar></app-navigation-bar>
+<div id="page-container">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3" id="image">
+                <a id="heading" class="list-group" style="text-decoration: none;"> <b>Rate a TA</b></a>
+
+            </div>
+            <div class="col-9" id="content-col">
+                <div class="content-area ">
+                    <div class="container">
+                        <div class="row">
+                            <div class="main-content">
+                                <h1> <b>Rate/Review TA by Course</b> </h1>
+                                <div id="search-area" class="container">
+                                    <form>
+                                        <div class="form-group row">
+                                            <div id="term_month_year" class="col-md-6 col-sm-12">
+                                                <label for="term_month_year">Enter Course Semesters:</label>
+                                                <input class="form-control" id="term_month_yearInput" formControlName="term_month_year" type="number" class="form-control" id="term_month_year" placeholder="FALL2021" />
+                                            </div>
+                                            <div id="course_type" class="col-md-6 col-sm-12">
+                                                <label for="course_type">Enter Course Type:</label>
+                                                <input class="form-control" id="course_typeInput" formControlName="course_type" type="text" class="form-control" id="course_type" placeholder="COMP" />
+                                            </div>
+                                            <div id="course_num" class="col-md-6 col-sm-12">
+                                                <label for="course_num">Enter Course Number:</label>
+                                                <input class="form-control" id="course_numInput" formControlName="course_num" type="number" class="form-control" id="course_num" placeholder="000" />
+                                            </div>
+                                            <div id="ta_name" class="col-md-6 col-sm-12">
+                                                <label for="ta_name">Enter TA Name:</label>
+                                                <input class="form-control" id="ta_nameInput" formControlName="ta_name" type="text" class="form-control" id="ta_name" placeholder="Johny Tom" />
+                                            </div>
+                                        </div>
+                                        <div id="rating" class="row">
+                                            <p><strong>Select your TA Rating: from 1 to 5 where  1 = 1 star and 5 = 5 stars </strong></p>
+                                            <div class="rate ">
+                                                <label for="rating">Choose a rating from 1 star to 5 stars</label>
+                                                <input type="radio" id="star5" name="rate" value="5" />
+                                                <label for="star5" title="text">5 stars</label>
+                                                <input type="radio" id="star4" name="rate" value="4" />
+                                                <label for="star4" title="text">4 stars</label>
+                                                <input type="radio" id="star3" name="rate" value="3" />
+                                                <label for="star3" title="text">3 stars</label>
+                                                <input type="radio" id="star2" name="rate" value="2" />
+                                                <label for="star2" title="text">2 stars</label>
+                                                <input type="radio" id="star1" name="rate" value="1" />
+                                                <label for="star1" title="text">1 star</label>
+                                            </div>
+
+                                        </div>
+                                        <div class="row">
+                                            <label for="rating">Enter your review:</label>
+                                            <textarea name="" id="rating" cols="50" rows="10">
+                                               
+                                            </textarea>
+
+                                        </div>
+
+                                        <div class="row">
+                                            <div>
+                                                <button routerLinkActive="active" type="submit">Search</button>
+                                            </div>
+
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<app-footer></app-footer>

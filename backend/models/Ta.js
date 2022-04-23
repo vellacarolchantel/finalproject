@@ -11,7 +11,7 @@ const taSchema = new mongoose.Schema({
     email: String,
     priority: String, // could be a boolean
     hours: Number,
-    date_applied: Number,
+    date_applied: String,
     location: String,
     phone: Number,
     degree: String,

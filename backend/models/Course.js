@@ -1,6 +1,4 @@
 mongoose = require('mongoose');
-const Ta = require("./Ta")
-
 
 // COURSE 
 const courseSchema = new mongoose.Schema({

@@ -194,11 +194,11 @@ router.post('/add_ta', function (req, res) {
     let ta = Ta.find({ student_id: req.body.student_id});
     
     if(!course && !ta){
-        return error("Unable to find course and TA.")
+        res.status(500).send("Unable to find course and TA.")
     }else if(!course){
-        return error("Unable to find course.")
+        res.status(500).send("Unable to find course.")
     }else if(!ta){
-        return error("Unable to find Ta")
+        res.status(500).send("Unable to find Ta")
     }
 
     // Handling the TA Database first 
@@ -253,11 +253,11 @@ router.delete('/remove_ta', function (req, res){
     let ta = Ta.find({ student_id: req.body.student_id}, {term_month_year : course.term_month_year});
 
     if(!course && !ta){
-        return error("Unable to find course and TA.")
+        res.status(500).send("Unable to find course and TA.")
     }else if(!course){
-        return error("Unable to find course.")
+        res.status(500).send("Unable to find course.")
     }else if(!ta){
-        return error("Unable to find Ta")
+        res.status(500).send("Unable to find Ta")
     }
 
    
@@ -280,7 +280,7 @@ router.delete('/remove_ta', function (req, res){
         // Updating the Ta database
         Ta.findOneAndUpdate({ student_id: req.body.student_id}, {ta_name : req.body.ta_name}, { assigned_in_past : in_past}, {in_present : in_present}, {term_month_year : course.term_month_year});
     }else{
-        return error("TA is not teaching said course. No need to remove.")
+        res.status(500).send("TA is not teaching said course. No need to remove.")
     }
 
     // Handling the Course database 

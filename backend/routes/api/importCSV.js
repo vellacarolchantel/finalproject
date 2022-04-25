@@ -3,8 +3,8 @@ const express = require("express");
 const app = express();
 const bodyParser = require('body-parser');
 const mongoose = require("mongoose");
-const User = require("./models/User.js");
-const Professor = require("./models/Professor.js");
+const User = require("../../models/User.js");
+const Professor = require("../../models/Professor.js");
 const mongodb = require("mongodb").MongoClient;
 const csvtojson = require("csvtojson");
 

@@ -95,7 +95,7 @@ function middleHandler(req, res, next) {
     console.log("execute middle ware");
     next();
 }
-
+/* I believe you've removed this
 app.use(function (req, res, next) {
     console.log("first middle ware");                                                                                                             
     next();
@@ -173,5 +173,7 @@ router.post('/course/performance', async function (req, res) {
     }
 
 });
+
+*/
 
 module.exports = router;

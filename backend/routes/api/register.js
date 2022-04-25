@@ -3,18 +3,15 @@ const express = require("express");
 const app = express();
 const bodyParser = require('body-parser');
 const mongoose = require("mongoose");
-const User = require("./models/User.js");
-const Professor = require("./models/Professor.js");
+const User = require("../../models/User");
+const Professor = require("../../models/Professor");
 const mongodb = require("mongodb").MongoClient;
 const csvtojson = require("csvtojson");
 
 app.use(bodyParser.urlencoded({ extended: false }));
 
-app.get('/register', function (req, res) {
-    res.sendFile(__dirname + '/register.html');
-});
-
-app.post('/register', (req, res) => {
+router.post("/register", async function (req, res) {
+    try {
     var newUser = new User({
         username: req.body.username,
         password: req.body.password,
@@ -38,7 +35,7 @@ app.post('/register', (req, res) => {
     }
             });
 
-User.findOne({ email: req.body.email }, function (err, repeatUser) {
+    User.findOne({ email: req.body.email }, function (err, repeatUser) {
     if (err) {
     }
     else {
@@ -62,4 +59,4 @@ newUser.save(function (err) {
 
 });
 
-        });
+});

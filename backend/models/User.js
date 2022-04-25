@@ -1,6 +1,7 @@
 mongoose = require('mongoose');
 bcrypt = require('bcrypt'),
-SALT_WORK_FACTOR = 7 ;
+    SALT_WORK_FACTOR = 7;
+const Course = require("./Course.js");
 
 const userSchema = new mongoose.Schema({
     first_name: String,
@@ -10,7 +11,7 @@ const userSchema = new mongoose.Schema({
     student_id: Number, 
     username: String, 
     password: String, 
-    courses_reg: [Course],
+    courses_reg: [String],
     access: [Number]
 });
 

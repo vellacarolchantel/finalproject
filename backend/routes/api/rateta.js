@@ -1,5 +1,21 @@
-// The user specifies which course (course_type, course_num) and which term (term_month_year).
-// They choose a TA associated with that course (from the courses "tas" variable)
-// And are allowed to rate a TA from 0 to 5 (add to student_ratings)
-// And a textbox allows them to put in a short comment (add to student_comments)
-// Finally a submit button to process this review.
+require("dotenv").config();
+const express = require("express");
+const app = express();
+const bodyParser = require('body-parser');
+const mongoose = require("mongoose");
+const User = require("./models/User.js");
+const Professor = require("./models/Professor.js");
+const mongodb = require("mongodb").MongoClient;
+const csvtojson = require("csvtojson");
+
+app.use(bodyParser.urlencoded({ extended: false }));
+
+
+app.post('/rateTA', (req, res) => {
+    res.send("Rating: " + req.body.ratingnumber + "<p></p>" + req.body.review);
+});
+
+app.get('/rateTA', function (req, res) {
+    res.sendFile(__dirname + '/dashboard.html');
+});
+

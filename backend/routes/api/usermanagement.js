@@ -1,18 +1,15 @@
-// A form that lets you search a user?
-// I'm not exactly sure which format we should use
-// to search. Ask Carol if we are searching by ID
-// by first name, last name, etc.
+require("dotenv").config();
+const express = require("express");
+const app = express();
+const bodyParser = require('body-parser');
+const mongoose = require("mongoose");
+const User = require("./models/User.js");
+const Professor = require("./models/Professor.js");
+const mongodb = require("mongodb").MongoClient;
+const csvtojson = require("csvtojson");
 
-// A form that reads out information about a user
-// and lets you edit fields. Then a submit button to
-// pursue these changes.
+app.use(bodyParser.urlencoded({ extended: false }));
 
-// Also perhaps a "Delete" button for this ^? As in
-// you press the button and it deletes the user after
-// asking for a warning perhaps.
-// But if you don't want to put the warning you don't
-// have to.
-
-// Finally, a tab that lets you add a user with the same
-// information as in register.js along with a submit
-// button again.
+app.get('/usermanagement', function (req, res) {
+    res.sendFile(__dirname + '/usermanagement.html');
+});

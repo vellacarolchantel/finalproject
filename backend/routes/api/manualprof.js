@@ -1,15 +1,8 @@
-require("dotenv").config();
-const express = require("express");
-const app = express();
-const bodyParser = require('body-parser');
-const mongoose = require("mongoose");
-const User = require("./models/User.js");
-const Professor = require("./models/Professor.js");
-const mongodb = require("mongodb").MongoClient;
-const csvtojson = require("csvtojson");
+/* needs to be refactored to connect to the frontend
+
 
 app.get('/manualprof', function (req, res) {
-    res.sendFile(__dirname + '/manualprof.html');
+    res.sendFile(__dirname + '/manualtesting/manualprof.html');
 });
 
 app.post('/manualprof', (req, res) => {
@@ -17,7 +10,10 @@ app.post('/manualprof', (req, res) => {
     const names = req.body.full_name.split(" ");
     console.log(names[0]);
     console.log(names[1]);
-    var userID = req.body.full_name
+    var userID = req.body.full_name;
+    // const userFIND = User.findOne({ first_name: 'Peter' });
+    //  console.log(User.find({}));
+
     var newProf = new Professor({
         ratings_given: req.body.ratings_given,
         curr_courses: req.body.curr_courses.split(" "),
@@ -43,10 +39,13 @@ app.post('/manualprof', (req, res) => {
     newProf.save(function (err) {
         if (err) throw err;
         newProf.save().then(() => console.log("Successfully added Prof!"));
-        res.sendFile(__dirname + '/dashboard.html');
+        res.sendFile(__dirname + '/manualtesting/dashboard.html');
 
     });
 
 
 
 });
+
+
+*/

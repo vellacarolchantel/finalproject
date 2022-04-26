@@ -1,68 +1,57 @@
-require("dotenv").config();
-const express = require("express");
-const app = express();
-const bodyParser = require('body-parser');
-const mongoose = require("mongoose");
-const User = require("../../models/User");
-const Professor = require("../../models/Professor");
-const mongodb = require("mongodb").MongoClient;
-const router = require('express').Router();
-const csvtojson = require("csvtojson");
+/* needs to be refactored to connect to the frontend 
 
-app.use(bodyParser.urlencoded({ extended: false }));
-
-router.post("", async function (req, res) {
-   
-        var newUser = new User({
-            username: req.body.username,
-            password: req.body.password,
-            first_name: req.body.first_name,
-            last_name: req.body.last_name,
-            student_id: req.body.student_id,
-            email: req.body.email,
-            id: req.body.username,
-
-            // student
-            access: 4,
-            courses_reg: req.body.course.split(" ")
+app.get('/register', function (req, res) {
+            res.sendFile(__dirname + '/manualtesting/register.html');
         });
 
-        User.findOne({ username: req.body.username }, function (err, repeatUser) {
-            if (err) {
-                console.log(err);
-            }
-            else {
-                console.log("This username is already in use. Please choose another.");
-        }
+        app.post('/register', (req, res) => {
+            var newUser = new User({
+                username: req.body.username,
+                password: req.body.password,
+                first_name: req.body.first_name,
+                last_name: req.body.last_name,
+                student_id: req.body.student_id,
+                email: req.body.email,
+                id: req.body.id,
+
+                // student
+                access: 4,
+                courses_reg: req.body.course.split(" ")
             });
 
-User.findOne({ email: req.body.email }, function (err, repeatUser) {
-    if (err) {
-    }
-    else {
-        console.log("This email is already in use. Please choose another.");
-    }
-});
+            User.findOne({ username: req.body.username }, function (err, repeatUser) {
+                if (err) {
+                    console.log(err);
+                }
+                else {
+                    //console.log("This username is already in use. Please choose another.");
+                }
+            });
 
-User.findOne({ student_id: req.body.student_id }, function (err, repeatUser) {
-    if (err) {
-    }
-    else {
-        console.log("This Student ID is already in use. Please correct your input or contact technical support.");
-    }
-});
+            User.findOne({ email: req.body.email }, function (err, repeatUser) {
+                if (err) {
+                }
+                else {
+                    //console.log("This email is already in use. Please choose another.");
+                }
+            });
 
-
-newUser.save(function (err) {
-    if (err) throw err;
-    newUser.save().then(() => console.log("Successfully registered!"));
-    res.sendFile(__dirname + '/dashboard.html');
-
-});
-
-
-  
-});
+            User.findOne({ student_id: req.body.student_id }, function (err, repeatUser) {
+                if (err) {
+                }
+                else {
+                    //console.log("This Student ID is already in use. Please correct your input or contact technical support.");
+                }
+            });
 
 
-module.exports = router;
+            newUser.save(function (err) {
+                if (err) throw err;
+                newUser.save().then(() => console.log("Successfully registered!"));
+                res.sendFile(__dirname + '/manualtesting/dashboard.html');
+
+            });
+
+        });
+        
+   */

@@ -6,7 +6,7 @@ const profSchema = new mongoose.Schema({
     curr_courses : [String],
     name: String,
     id: Number,
-    // For Chantel to fill out :)
+
 });
 
 const Professor = mongoose.model('Professor', profSchema);

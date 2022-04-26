@@ -6,4 +6,5 @@ export enum AppAction {
   select = 'select',
   add = 'add',
   rate = 'rate',
+  view = 'view',
 }

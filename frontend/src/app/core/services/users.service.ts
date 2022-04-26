@@ -33,6 +33,8 @@ export class UsersService {
       email: 'professor.instructor@mcgill.ca',
       access: [UserType.professor],
       password: 'mcgillprof',
+      first_name: 'John',
+      last_name: 'Smith',
     }),
     // Student
     new User({
@@ -40,6 +42,8 @@ export class UsersService {
       email: 'student.undergrad@mail.mcgill.ca',
       access: [UserType.student],
       password: 'mcgillstudent',
+      first_name: 'Vella',
+      last_name: 'Abur',
     }),
 
     // TA
@@ -48,6 +52,8 @@ export class UsersService {
       email: 'ta.instructor@mcgill.ca',
       access: [UserType.ta],
       password: 'mcgillta',
+      first_name: 'Sarah',
+      last_name: 'Daniels',
     }),
 
     // Admin
@@ -56,6 +62,18 @@ export class UsersService {
       email: 'admin.admin@mcgill.ca',
       access: [UserType.admin],
       password: 'mcgilladmin',
+      first_name: 'Grace',
+      last_name: 'Akpan',
+    }),
+
+    // Sysop
+    new User({
+      username: 'sys.operator@mcgill.ca',
+      email: 'sys.operator@mcgill.ca',
+      access: [UserType.sysop],
+      password: 'mcgillsysop',
+      first_name: 'Thomas',
+      last_name: 'Earth',
     }),
   ];
 }

@@ -5,4 +5,9 @@ export enum AppSubject {
   rating = 'rating',
   performance = 'performance',
   ta = 'ta',
+  ratingPage = 'ratingPage',
+  taAdministrationPage = 'taAdministrationPage',
+  taManagementPage = 'taManagementPage',
+  sysOpsTasksPage = 'sysOpsTasksPage',
+  wishlist = 'wishlist',
 }

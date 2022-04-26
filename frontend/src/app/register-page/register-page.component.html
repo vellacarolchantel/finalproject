@@ -1,132 +1,190 @@
 <div class="container">
+  <form
+    class="well form-horizontal"
+    action=" "
+    method="post"
+    id="contact_form"
+    (ngSubmit)="register()"
+    [formGroup]="form"
+  >
+    <fieldset>
+      <!-- Form Name -->
+      <legend>
+        <h2><b>Register Here</b></h2>
+      </legend>
+      <br />
 
-    <form class="well form-horizontal" action=" " method="post" id="contact_form">
-        <fieldset>
+      <!-- Text input-->
 
-            <!-- Form Name -->
-            <legend>
+      <div class="form-group">
+        <label class="col-md-4 control-label">First Name</label>
+        <div class="col-md-4 inputGroupContainer">
+          <div class="input-group">
+            <span class="input-group-addon"
+              ><i class="glyphicon glyphicon-user"></i
+            ></span>
+            <input
+              placeholder="First Name"
+              formControlName="first_name"
+              class="form-control"
+              type="text"
+            />
+          </div>
+        </div>
+      </div>
 
-                <h2><b>Register Here</b></h2>
+      <!-- Text input-->
 
-            </legend><br>
+      <div class="form-group">
+        <label class="col-md-4 control-label">Last Name</label>
+        <div class="col-md-4 inputGroupContainer">
+          <div class="input-group">
+            <span class="input-group-addon"
+              ><i class="glyphicon glyphicon-user"></i
+            ></span>
+            <input
+              formControlName="last_name"
+              placeholder="Last Name"
+              class="form-control"
+              type="text"
+            />
+          </div>
+        </div>
+      </div>
 
-            <!-- Text input-->
+      <!-- Text input-->
 
-            <div class="form-group">
-                <label class="col-md-4 control-label">First Name</label>
-                <div class="col-md-4 inputGroupContainer">
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                        <input name="first_name" placeholder="First Name" class="form-control" type="text">
-                    </div>
-                </div>
+      <div class="form-group">
+        <label class="col-md-4 control-label">Username</label>
+        <div class="col-md-4 inputGroupContainer">
+          <div class="input-group">
+            <span class="input-group-addon"
+              ><i class="glyphicon glyphicon-user"></i
+            ></span>
+            <input
+              formControlName="user_name"
+              placeholder="Username"
+              class="form-control"
+              type="text"
+            />
+          </div>
+        </div>
+      </div>
+
+      <!-- Text input-->
+
+      <div class="form-group">
+        <label class="col-md-4 control-label">Password</label>
+        <div class="col-md-4 inputGroupContainer">
+          <div class="input-group">
+            <span class="input-group-addon"
+              ><i class="glyphicon glyphicon-user"></i
+            ></span>
+            <input
+              formControlName="user_password"
+              placeholder="Password"
+              class="form-control"
+              type="password"
+            />
+          </div>
+        </div>
+      </div>
+
+      <!-- Text input-->
+
+      <div class="form-group">
+        <label class="col-md-4 control-label">Confirm Password</label>
+        <div class="col-md-4 inputGroupContainer">
+          <div class="input-group">
+            <span class="input-group-addon"
+              ><i class="glyphicon glyphicon-user"></i
+            ></span>
+            <input
+              formControlName="confirm_password"
+              placeholder="Confirm Password"
+              class="form-control"
+              type="password"
+            />
+          </div>
+        </div>
+      </div>
+
+      <!-- Text input-->
+      <div class="form-group">
+        <label class="col-md-4 control-label">E-Mail</label>
+        <div class="col-md-4 inputGroupContainer">
+          <div class="input-group">
+            <span class="input-group-addon"
+              ><i class="glyphicon glyphicon-envelope"></i
+            ></span>
+            <input
+              formControlName="email"
+              placeholder="E-Mail Address"
+              class="form-control"
+              type="text"
+            />
+          </div>
+        </div>
+      </div>
+
+      <!-- Number input-->
+
+      <div class="form-group">
+        <label class="col-md-4 control-label">ID</label>
+        <div class="col-md-4 inputGroupContainer">
+          <div class="input-group">
+            <span class="input-group-addon"
+              ><i class="glyphicon glyphicon-thumbs-up"></i
+            ></span>
+            <input
+              formControlName="cid"
+              placeholder="123456789"
+              class="form-control"
+              type="number"
+            />
+          </div>
+        </div>
+      </div>
+
+      <!-- Text Input -->
+      <div class="form-group">
+        <label class="col-md-4 control-label">Course(s)</label>
+        <div class="col-md-4 inputGroupContainer">
+          <div class="input-group">
+            <span class="input-group-addon"
+              ><i class="glyphicon glyphicon-book"></i
+            ></span>
+            <input
+              formControlName="course"
+              placeholder="COMP 307, COMP 421, ..."
+              class="form-control"
+              type="text"
+            />
+          </div>
+        </div>
+      </div>
+
+      <!-- Button -->
+      <div class="form-group">
+        <label class="col-md-4 control-label"></label>
+        <div class="col-md-4">
+          <br />
+          <button type="submit" class="btn" [disabled]="registering">
+            SUBMIT
+
+            <div
+              class="spinner-border text-primary"
+              role="status"
+              style="margin-left: 16px; width: 1rem; height: 1rem"
+              *ngIf="registering"
+            >
+              <span class="sr-only">Loading...</span>
             </div>
-
-            <!-- Text input-->
-
-            <div class="form-group">
-                <label class="col-md-4 control-label">Last Name</label>
-                <div class="col-md-4 inputGroupContainer">
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                        <input name="last_name" placeholder="Last Name" class="form-control" type="text">
-                    </div>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <label class="col-md-4 control-label">Role</label>
-                <div class="col-md-4 selectContainer">
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
-                        <select name="role" class="form-control selectpicker">
-      <option value="">Select Role</option>
-      <option>TA</option>
-      <option>Instructor</option>
-      <option >Admin</option>
-      <option >Sysop</option>
-      <option >Student</option>
-      
-    </select>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Text input-->
-
-            <div class="form-group">
-                <label class="col-md-4 control-label">Username</label>
-                <div class="col-md-4 inputGroupContainer">
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                        <input name="user_name" placeholder="Username" class="form-control" type="text">
-                    </div>
-                </div>
-            </div>
-
-            <!-- Text input-->
-
-            <div class="form-group">
-                <label class="col-md-4 control-label">Password</label>
-                <div class="col-md-4 inputGroupContainer">
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                        <input name="user_password" placeholder="Password" class="form-control" type="password">
-                    </div>
-                </div>
-            </div>
-
-            <!-- Text input-->
-
-            <div class="form-group">
-                <label class="col-md-4 control-label">Confirm Password</label>
-                <div class="col-md-4 inputGroupContainer">
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
-                        <input name="confirm_password" placeholder="Confirm Password" class="form-control" type="password">
-                    </div>
-                </div>
-            </div>
-
-            <!-- Text input-->
-            <div class="form-group">
-                <label class="col-md-4 control-label">E-Mail</label>
-                <div class="col-md-4 inputGroupContainer">
-                    <div class="input-group">
-                        <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
-                        <input name="email" placeholder="E-Mail Address" class="form-control" type="text">
-                    </div>
-                </div>
-            </div>
-
-
-            <!-- Text input-->
-
-            <div class="form-group">
-                <label class="col-md-4 control-label">ID</label>
-                <div class="col-md-4 inputGroupContainer">
-                    <div class="input-group">
-                        <span class="input-group-addon"></span>
-                        <input name="cid" placeholder="123456789" class="form-control" type="number">
-                    </div>
-                </div>
-            </div>
-
-            <!-- Select Basic -->
-
-            <!-- Success message -->
-            <!-- <div class="alert alert-success" role="alert" id="success_message">Success <i class="glyphicon glyphicon-thumbs-up"></i> Success!.</div> -->
-
-            <!-- Button -->
-            <div class="form-group">
-                <label class="col-md-4 control-label"></label>
-                <div class="col-md-4"><br>
-                    <button type="submit" class="btn">SUBMIT</button>
-                </div>
-            </div>
-
-        </fieldset>
-    </form>
+          </button>
+        </div>
+      </div>
+    </fieldset>
+  </form>
 </div>
 
 <!-- /.container -->

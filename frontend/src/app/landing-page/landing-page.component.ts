@@ -49,8 +49,8 @@ export class LandingPageComponent implements OnInit {
           this.showAlert = true;
           this.alertClass = 'alert-success';
           setTimeout(() => {
-            this.router.navigate(['/sysop-page']);
-          }, 4_000);
+            this.router.navigate(['/dashboard']);
+          }, 2_00);
         },
         error: (error: AppException) => {
           this.logging = false;
@@ -59,7 +59,7 @@ export class LandingPageComponent implements OnInit {
           this.alertClass = 'alert-danger';
           setTimeout(() => {
             this.showAlert = false;
-          }, 4_000);
+          }, 1_000);
         },
       });
   }

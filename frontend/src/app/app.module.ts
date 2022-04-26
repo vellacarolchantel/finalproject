@@ -1,5 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { NgSelectModule } from '@ng-select/ng-select';
+
+
+
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -7,7 +11,7 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 import { StudentPageComponent } from './student-page/student-page.component';
 import { TaPageComponent } from './ta-page/ta-page.component';
 import { AdminPageComponent } from './admin-page/admin-page.component';
-import { SysopPageComponent } from './sysop-page/sysop-page.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 import { ProfessorPageComponent } from './professor-page/professor-page.component';
 import { NavigationBarComponent } from './navigation-bar/navigation-bar.component';
 import { HeaderComponent } from './header/header.component';
@@ -39,11 +43,14 @@ import { TaWishListComponent } from './ta-management/ta-wish-list/ta-wish-list.c
 import { TaManagementSidebarComponent } from './ta-management/ta-management-sidebar/ta-management-sidebar.component';
 import { SelectCourseComponent } from './ta-management/select-course/select-course.component';
 import { SelectCourseDashboardComponent } from './ta-management/select-course-dashboard/select-course-dashboard.component';
-import { AngularFileUploaderModule } from "angular-file-uploader";
+import { AngularFileUploaderModule } from 'angular-file-uploader';
 import { ImportProfCourseComponent } from './sysop-tasks/import-prof-course/import-prof-course.component';
 import { ManualAddComponent } from './sysop-tasks/manual-add/manual-add.component';
 import { SysopSidebarComponent } from './sysop-tasks/sysop-sidebar/sysop-sidebar.component';
 import { ManageUsersComponent } from './sysop-tasks/manage-users/manage-users.component';
+import { CoreModule } from './core/core.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ComingSoonComponent } from './coming-soon/coming-soon.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +59,7 @@ import { ManageUsersComponent } from './sysop-tasks/manage-users/manage-users.co
     StudentPageComponent,
     TaPageComponent,
     AdminPageComponent,
-    SysopPageComponent,
+    DashboardComponent,
     ProfessorPageComponent,
     NavigationBarComponent,
     HeaderComponent,
@@ -84,8 +91,9 @@ import { ManageUsersComponent } from './sysop-tasks/manage-users/manage-users.co
     ImportProfCourseComponent,
     ManualAddComponent,
     SysopSidebarComponent,
-    ManageUsersComponent
- 
+    ManageUsersComponent,
+    ComingSoonComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -95,6 +103,11 @@ import { ManageUsersComponent } from './sysop-tasks/manage-users/manage-users.co
     ReactiveFormsModule,
     AppAbilityModule,
     AngularFileUploaderModule,
+    CoreModule,
+    NgSelectModule,
+    BrowserAnimationsModule,
+  
+  
   ],
   providers: [],
   bootstrap: [AppComponent],

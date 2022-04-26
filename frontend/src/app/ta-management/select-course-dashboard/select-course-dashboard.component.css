@@ -31,7 +31,7 @@
             bottom: 0;
             margin: 0;
         }
-        .info-container {
+        .select-container {
             padding: 0;
             margin: 0;
             width: 100%;
@@ -84,9 +84,10 @@
         color: white;
         background-color: red;
         border-radius: 100%;
-        width: 50%;
+        width: 60%;
         margin-bottom: 40px;
         height: 100px;
+        font-size: 16px;
     }
     
     @media (max-width:768px) {
@@ -118,11 +119,12 @@
     
     #exit {
         text-align: right;
+        padding-right: 40px;
     }
     
     #exit a {
         text-decoration: none;
-        background: red;
+        background: black;
         padding: 10px;
         font-weight: bold;
         font-size: 16px;

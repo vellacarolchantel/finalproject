@@ -4,6 +4,7 @@ import { UserType } from '../enums/user-type.enum';
 import { AppModel } from './app-model';
 import { Course } from './course.model';
 
+//USER OBJECT
 export class User extends AppModel<User> {
   first_name!: string;
   last_name!: string;
@@ -12,8 +13,12 @@ export class User extends AppModel<User> {
   student_id!: number;
   username!: string;
   password!: string;
-  courses_reg!: Course[];
+  courses_reg!: string[];
   access!: UserType[];
+
+    get fullName(): string {
+    return `${this.first_name ?? ''} ${this.last_name ?? ''}`.trim();
+  }
 }
 
 //TA OBJECT
@@ -43,6 +48,8 @@ export interface Ta {
   ratings_received: number;
   notes: string[];
   wishlist: { [key: string]: string };
+
+
 }
 
 // STUDENT OBJECT

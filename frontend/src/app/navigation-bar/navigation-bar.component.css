@@ -6,48 +6,47 @@
  * xl [1200, inf]
  */
 
-
 /*  NAV BAR */
 
 .nav-container {
-    width: 100%;
-    height: 60px;
-    clear: both;
+  width: 100%;
+  height: 60px;
+  clear: both;
 }
 
 .navbar {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 .nav-link {
-    text-decoration: none;
-    font-weight: bold;
-    margin-right: 15px;
+  text-decoration: none;
+  font-weight: bold;
+  margin-right: 15px;
 }
 
-.nav-item>a:hover {
-    background-color: red;
-    border-radius: 40%;
+.nav-item > a:hover {
+  background-color: red;
+  border-radius: 40%;
 }
 
 .navbar-brand {
-    padding: 30;
-    font-size: 32px;
-    left: 0;
+  padding: 30;
+  font-size: 32px;
+  left: 0;
 }
 
 .dropdown-item {
-    text-decoration: none;
-    cursor: pointer;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .dropdown-toggle::after {
-    display: none;
+  display: none;
 }
 
-@media (max-width:767px) {
-    .nav-item>a:hover {
-        background-color: black;
-        border-radius: 0%;
-    }
+@media (max-width: 767px) {
+  .nav-item > a:hover {
+    background-color: black;
+    border-radius: 0%;
+  }
 }

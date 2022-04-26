@@ -1,4 +1,8 @@
-.info-container {}
+.info-container {
+    margin-top: 10px;
+    position: relative;
+    padding-bottom: 60px;
+}
 
 @media (max-width:767px) {
     .info-container {
@@ -29,7 +33,6 @@
     }
     .info-container {
         padding: 0;
-        /* margin: 0; */
         width: 100%;
     }
 }
@@ -42,18 +45,7 @@
 }
 
 @media (max-width: 992px) {
-    .content-area {
-        /* background: url(/assets/images/dropMo.jpg) no-repeat; */
-        /* background-size: cover; */
-        /* background-size: 100% 26%; */
-    }
-}
-
-@media (max-width: 992px) {
     h1 {
-        /* color: white; */
-        /* background: url(/assets/images/dropMo.jpg) no-repeat;
-        background-size: cover; */
         background: rgb(211, 15, 15);
         padding-bottom: 10px;
     }
@@ -91,15 +83,16 @@ img {
     cursor: pointer;
 }
 
-label {
+h3 {
     font-size: 18px;
-    padding: 20px;
+    padding: 20px 0;
+    font-weight: bolder;
 }
 
 @media (max-width: 992px) {
-    label {
+    h3 {
         font-size: 18px;
-        padding: 0px;
+        padding: 20px 0 0 0px;
     }
 }
 
@@ -112,9 +105,23 @@ button {
     margin-top: 20px;
     width: 15%;
     padding: 5px;
-    background: red;
     font-weight: bold;
     color: white;
+}
+
+#submit {
+    background: red;
+    margin-right: 10px;
+}
+
+#submitDiv {
+    display: flex;
+    justify-content: right;
+    text-align: right;
+}
+
+#add {
+    background: black;
 }
 
 @media (max-width:768px) {
@@ -122,3 +129,13 @@ button {
         width: 50%;
     }
 }
+
+textarea {
+    width: 50%;
+    height: 80px;
+}
+
+
+/* #notelable {
+    font-size: 18;
+} */

@@ -1,4 +1,3 @@
-// Code taken from geeks for geeks
 const express = require("express");
 const server = express();
   

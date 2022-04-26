@@ -10,7 +10,7 @@ const csvtojson = require("csvtojson");
 
 app.use(bodyParser.urlencoded({ extended: false }));
 
-app.post('/login', (req, res) => {
+app.post('/landing-page', (req, res) => {
     let username1 = req.body.username;
     let password1 = req.body.password
     User.findOne({ username: username1 }, function (err, user) {

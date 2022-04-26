@@ -1,60 +1,130 @@
 <div id="nav-container" class="bg-dark">
     <div class="container">
-        <nav class="navbar navbar-expand-md navbar-dark bg-dark ">
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark">
             <div class="container-fluid">
-                <a routerLink="/sysop-page" class="navbar-brand">myTA</a>
+                <a routerLink="/dashboard" class="navbar-brand">myTA</a>
                 <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
           <span class="navbar-toggler-icon"></span>
-      </button>
+        </button>
                 <div class="collapse navbar-collapse" id="navbarCollapse">
                     <div class="navbar-nav">
-                        <a routerLink="/sysop-page" class="nav-item nav-link dropdown-toggle active">Home</a>
+                        <a routerLink="/dashboard" class="nav-item nav-link dropdown-toggle active">Home</a
+            >
 
-                        <div class="nav-item dropdown">
-                            <a routerLink="/ta-rating" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Rate a TA</a>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" routerLink="/rate-a-ta">Rate/Review TA by course</a>
-                            </div>
-                        </div>
-                        <div class="nav-item dropdown">
-                            <a href="" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">TA Administration</a>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" routerLink="/ta-administration/ta-cohort">Import TA cohort</a>
-                                <a class="dropdown-item" routerLink="/ta-administration/ta-info">TA Info/history</a>
-                                <a class="dropdown-item" routerLink="/ta-administration/ta-course-history">Course TA history</a>
-                                <a class="dropdown-item" routerLink="/ta-administration/ta-add-to-course">Add TA to a course</a>
-                                <a class="dropdown-item" routerLink="/ta-administration/ta-remove-from-course">Remove TA from a Course</a>
-                                <a class="dropdown-item" routerLink="/ta-administration/ta-statistics">Import Old TA statistics</a>
-                            </div>
-                        </div>
-                        <div class="nav-item dropdown">
-                            <a href="" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">TA Management</a>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" routerLink="/ta-management/select-course">Select Course</a>
-                            </div>
-                        </div>
-                        <div class="nav-item dropdown">
-                            <a href="" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Sysop Tasks</a>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" routerLink="/sysop-tasks/manage-users">Manage Users</a>
-                                <a class="dropdown-item" routerLink="/sysop-tasks/import-prof-course">Import prof + course</a>
-                                <a class="dropdown-item" routerLink="/sysop-tasks/manual-add">Manual add prof + course</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="nav-item dropdown">
+              <a
+                routerLink=""
+                class="nav-link dropdown-toggle active"
+                data-bs-toggle="dropdown"
+                role="button"
+                aria-haspopup="true"
+                aria-expanded="false"
+                >Rate a TA</a
+              >
+              <div class="dropdown-menu">
+                <a class="dropdown-item" routerLink="/rate-a-ta"
+                  >Rate/Review TA by course</a
+                >
+              </div>
             </div>
-        </nav>
-
-    </div>
-
+            <div
+              class="nav-item dropdown"
+              *ngIf="kAppAction.view | able: kAppSubject.taAdministrationPage"
+            >
+              <a
+                href=""
+                class="nav-link dropdown-toggle active"
+                data-bs-toggle="dropdown"
+                role="button"
+                aria-haspopup="true"
+                aria-expanded="false"
+                >TA Administration</a
+              >
+              <div class="dropdown-menu">
+                <a
+                  class="dropdown-item"
+                  routerLink="/ta-administration/ta-cohort"
+                  >Import TA cohort</a
+                >
+                <a class="dropdown-item" routerLink="/ta-administration/ta-info"
+                  >TA Info/history</a
+                >
+                <a
+                  class="dropdown-item"
+                  routerLink="/ta-administration/ta-course-history"
+                  >Course TA history</a
+                >
+                <a
+                  class="dropdown-item"
+                  routerLink="/ta-administration/ta-add-to-course"
+                  >Add TA to a course</a
+                >
+                <a
+                  class="dropdown-item"
+                  routerLink="/ta-administration/ta-remove-from-course"
+                  >Remove TA from a Course</a
+                >
+                <a
+                  class="dropdown-item"
+                  routerLink="/ta-administration/ta-statistics"
+                  >Import Old TA statistics</a
+                >
+              </div>
+            </div>
+            <div
+              class="nav-item dropdown"
+              *ngIf="kAppAction.view | able: kAppSubject.taManagementPage"
+            >
+              <a
+                href=""
+                class="nav-link dropdown-toggle active"
+                data-bs-toggle="dropdown"
+                role="button"
+                aria-haspopup="true"
+                aria-expanded="false"
+                >TA Management</a
+              >
+              <div class="dropdown-menu">
+                <a
+                  class="dropdown-item"
+                  routerLink="/ta-management/select-course"
+                  >Select Course</a
+                >
+              </div>
+            </div>
+            <div
+              class="nav-item dropdown"
+              *ngIf="kAppAction.view | able: kAppSubject.sysOpsTasksPage"
+            >
+              <a
+                href=""
+                class="nav-link dropdown-toggle active"
+                data-bs-toggle="dropdown"
+                role="button"
+                aria-haspopup="true"
+                aria-expanded="false"
+                >Sysop Tasks</a
+              >
+              <div class="dropdown-menu">
+                <a class="dropdown-item" routerLink="/sysop-tasks/manage-users"
+                  >Manage Users</a
+                >
+                <a
+                  class="dropdown-item"
+                  routerLink="/sysop-tasks/import-prof-course"
+                  >Import prof + course</a
+                >
+                <a class="dropdown-item" routerLink="/sysop-tasks/manual-add"
+                  >Manual add prof + course</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </nav>
+  </div>
 </div>
-
-
-
-
-
-
 
 <!-- <div class="navbar-container">
     <div class="container">
@@ -74,40 +144,40 @@
           aria-expanded="false"
           >Rate a TA
         </a>
-                    <ul class="dropdown-menu">
-                        <li><a class="dropdown-item" routerLink="/rate-a-ta">Rate/Review TA by course</a></li>
-                    </ul>
-                </li>
-                <li role="presentation" class="dropdown">
-                    <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">TA Administration</a
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" routerLink="/rate-a-ta">Rate/Review TA by course</a></li>
+                        </ul>
+                        </li>
+                        <li role="presentation" class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">TA Administration</a
         >
         <ul class="dropdown-menu">
           <li><a class="dropdown-item" routerLink="/ta-administration/ta-cohort">Import TA cohort</a></li>
-                <li><a class="dropdown-item" routerLink="/ta-administration/ta-info">TA Info/history</a></li>
-                <li><a class="dropdown-item" routerLink="/ta-administration/ta-course-history">Course TA history</a></li>
-                <li><a class="dropdown-item" routerLink="/ta-administration/ta-add-to-course">Add TA to a course</a></li>
-                <li><a class="dropdown-item" routerLink="/ta-administration/ta-remove-from-course">Remove TA from a Course</a></li>
-                <li><a class="dropdown-item" routerLink="/ta-administration/ta-statistics">Import Old TA statistics</a></li>
-            </ul>
-            </li>
-            <li role="presentation" class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">TA Management</a
+                        <li><a class="dropdown-item" routerLink="/ta-administration/ta-info">TA Info/history</a></li>
+                        <li><a class="dropdown-item" routerLink="/ta-administration/ta-course-history">Course TA history</a></li>
+                        <li><a class="dropdown-item" routerLink="/ta-administration/ta-add-to-course">Add TA to a course</a></li>
+                        <li><a class="dropdown-item" routerLink="/ta-administration/ta-remove-from-course">Remove TA from a Course</a></li>
+                        <li><a class="dropdown-item" routerLink="/ta-administration/ta-statistics">Import Old TA statistics</a></li>
+                        </ul>
+                        </li>
+                        <li role="presentation" class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">TA Management</a
         >
         <ul class="dropdown-menu">
           <li><a class="dropdown-item" routerLink="/ta-management/select-course">Select Course</a></li>
-            </ul>
-            </li>
-            <li role="presentation" class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Sysop Tasks</a
+                        </ul>
+                        </li>
+                        <li role="presentation" class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Sysop Tasks</a
         >
         <ul class="dropdown-menu">
           <li><a class="dropdown-item" href="#">Manage Users</a></li>
-            <li><a class="dropdown-item" href="#">Import prof + course</a></li>
-            <li><a class="dropdown-item" href="#">Manual add prof + course</a></li>
-            </ul>
-            </li>
-            </ul>
-        </div>
+                        <li><a class="dropdown-item" href="#">Import prof + course</a></li>
+                        <li><a class="dropdown-item" href="#">Manual add prof + course</a></li>
+                        </ul>
+                        </li>
+                        </ul>
+                    </div>
 
-    </div>
-</div> -->
+                </div>
+            </div> -->

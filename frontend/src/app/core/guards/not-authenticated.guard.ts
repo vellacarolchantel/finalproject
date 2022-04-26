@@ -29,7 +29,7 @@ export class NotAuthenticatedGuard
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
-    return this.isLoggedOut || this.router.navigateByUrl('/sysop-page');
+    return this.isLoggedOut || this.router.navigateByUrl('/dashboard');
   }
   canActivateChild(
     childRoute: ActivatedRouteSnapshot,
@@ -39,7 +39,7 @@ export class NotAuthenticatedGuard
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
-    return this.isLoggedOut || this.router.navigateByUrl('/sysop-page');
+    return this.isLoggedOut || this.router.navigateByUrl('/dashboard');
   }
   canLoad(
     route: Route,
@@ -49,7 +49,7 @@ export class NotAuthenticatedGuard
     | Promise<boolean | UrlTree>
     | boolean
     | UrlTree {
-    return this.isLoggedOut || this.router.navigateByUrl('/sysop-page');
+    return this.isLoggedOut || this.router.navigateByUrl('/dashboard');
   }
 
   private get isLoggedOut(): boolean {

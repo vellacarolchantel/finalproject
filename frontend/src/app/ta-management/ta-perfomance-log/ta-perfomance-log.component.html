@@ -24,44 +24,21 @@
                             <div class="main-content">
                                 <h1> <b>TA Performance Log</b> </h1>
                                 <div id="search-area" class="container">
-                                    <form>
-                                        <div class="form-group row">
-                                            <div id="student_ID item" class="col-md-6 col-sm-12">
-                                                <label for="student_ID">Enter TA Student ID:</label>
-                                                <input class="form-control" id="student_ID" formControlName="student_ID" type="number" class="form-control" id="student_ID" placeholder="000000000" />
-                                            </div>
-                                            <div id="term_month_year" class="col-md-6 col-sm-12">
-                                                <label for="term_month_year">Enter Semester/Term:</label>
-                                                <input class="form-control" id="term_month_yearInput" formControlName="term_month_year" type="text" class="form-control" id="term_month_year" placeholder="WINTER2022" />
-                                            </div>
-
+                                    <form [formGroup]="notesForm">
+                                        <div formArrayName="taName">
+                                            <label for="taName">Enter/Select TA Name to Add a Note:</label>
+                                            <ng-select [items]="TAs" appendTo="body" formControlName="taName" placeholder="Select TA"></ng-select>
                                         </div>
-                                        <div class="form-group row">
-                                            <div id="course_type" class="col-md-6 col-sm-12">
-                                                <label for="course_type">Enter Course Type:</label>
-                                                <input class="form-control" id="course_typeInput" formControlName="course_type" type="text" class="form-control" id="course_type" placeholder="COMP" />
+                                        <div formArrayName="notes">
+                                            <h3></h3>
+                                            <div *ngFor="let mob of notes.controls,let i=index">
+                                                <label id="notelable">Note {{i+1}} &nbsp;</label> <br>
+                                                <textarea name="" id="notes" [formControlName]="i"> </textarea>
                                             </div>
-                                            <div id="course_num" class="col-md-6 col-sm-12">
-                                                <label for="course_num">Enter Course Number:</label>
-                                                <input class="form-control" id="course_numInput" formControlName="course_num" type="number" class="form-control" id="course_num" placeholder="307" />
-                                            </div>
+                                            <button id="add" (click)="addNote()" style="margin-bottom: 30px;">Add Another Note</button>
                                         </div>
-                                        <div class="form-group row">
-                                            <div id="TA_name" class="col-md-6 col-sm-12">
-                                                <label for="TA_name">Enter TA Name:</label>
-                                                <input class="form-control" id="TA_nameInput" formControlName="TA_name" type="text" class="form-control" id="TA_name" placeholder="Dora Explorer" />
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <label for="rating">Enter Notes:</label>
-                                            <textarea name="" id="rating" cols="50" rows="10">
-                                            </textarea>
-                                        </div>
-                                        <div class="row">
-                                            <div>
-                                                <button routerLinkActive="active" type="submit">Submit Notes</button>
-                                            </div>
-
+                                        <div id="submitDiv">
+                                            <button id="submit" routerLink="/ta-management/select-course-dashboard" routerLinkActive="active" type="submit">Submit Log</button>
                                         </div>
                                     </form>
                                 </div>

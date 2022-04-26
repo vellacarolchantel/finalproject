@@ -6,36 +6,37 @@ const mongoose = require("mongoose");
 const User = require("../../models/User");
 const Professor = require("../../models/Professor");
 const mongodb = require("mongodb").MongoClient;
+const router = require('express').Router();
 const csvtojson = require("csvtojson");
 
 app.use(bodyParser.urlencoded({ extended: false }));
 
-router.post("/register", async function (req, res) {
-    try {
-    var newUser = new User({
-        username: req.body.username,
-        password: req.body.password,
-        first_name: req.body.first_name,
-        last_name: req.body.last_name,
-        student_id: req.body.student_id,
-        email: req.body.email,
-        id: req.body.username,
+router.post("", async function (req, res) {
+   
+        var newUser = new User({
+            username: req.body.username,
+            password: req.body.password,
+            first_name: req.body.first_name,
+            last_name: req.body.last_name,
+            student_id: req.body.student_id,
+            email: req.body.email,
+            id: req.body.username,
 
-        // student
-        access: 4,
-        courses_reg: req.body.course.split(" ")
-    });
+            // student
+            access: 4,
+            courses_reg: req.body.course.split(" ")
+        });
 
-    User.findOne({ username: req.body.username }, function (err, repeatUser) {
-        if (err) {
-            console.log(err);
+        User.findOne({ username: req.body.username }, function (err, repeatUser) {
+            if (err) {
+                console.log(err);
+            }
+            else {
+                console.log("This username is already in use. Please choose another.");
         }
-        else
-            console.log("This username is already in use. Please choose another.");
-    }
             });
 
-    User.findOne({ email: req.body.email }, function (err, repeatUser) {
+User.findOne({ email: req.body.email }, function (err, repeatUser) {
     if (err) {
     }
     else {
@@ -59,4 +60,9 @@ newUser.save(function (err) {
 
 });
 
+
+  
 });
+
+
+module.exports = router;

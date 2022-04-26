@@ -6,68 +6,89 @@
             <div aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a routerLink="/">MyTa</a></li>
-                    <li class="breadcrumb-item"><a routerLink="/ta-management">TA Administration</a></li>
-                    <li class="breadcrumb-item"><a routerLink="/ta-management/select-course">Select Course</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Select Course Dashboard</li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/ta-management">TA Administration</a>
+                    </li>
+                    <li class="breadcrumb-item">
+                        <a routerLink="/ta-management/select-course">Select Course</a>
+                    </li>
+                    <li class="breadcrumb-item active" aria-current="page">
+                        Select Course Dashboard
+                    </li>
                 </ol>
             </div>
-
         </div>
         <div class="row">
             <div class="col-3" id="sidebar">
                 <!-- <app-ta-management-sidebar></app-ta-management-sidebar> -->
             </div>
             <div class="col-9" id="content-col">
-                <div class="content-area ">
+                <div class="content-area">
                     <div class="container">
                         <div class="row">
                             <div class="main-content">
-                                <h1> <b>What would you like to do?</b> </h1>
+                                <h1><b>What would you like to do?</b></h1>
                                 <div class="row">
                                     <div id="search-area" class="container">
                                         <div class="col">
                                             <form>
-
                                                 <div class="row" id="items">
-                                                    <div class="col-6" id="item1">
-                                                        <button routerLink="/ta-management/ta-wish-list" routerLinkActive="active" type="submit">TA WishList</button>
+                                                    <div class="col-6" id="item1" [style.visibility]="
+                              (kAppAction.view | able: kAppSubject.wishlist)
+                                ? 'visible'
+                                : 'hidden'
+                            ">
+                                                        <button routerLink="/ta-management/ta-wish-list" routerLinkActive="active" type="submit">
+                              TA WishList
+                            </button>
                                                     </div>
-                                                    <div class="col-6" id="item2">
-                                                        <button routerLink="/ta-management/ta-perfomance-log" routerLinkActive="active" type="submit">TA Performance Log</button>
+                                                    <div class="col-6" id="item2" [style.visibility]="
+                              (kAppAction.view | able: kAppSubject.performance)
+                                ? 'visible'
+                                : 'hidden'
+                            ">
+                                                        <button routerLink="/ta-management/ta-perfomance-log" routerLinkActive="active" type="submit">
+                              TA Performance Log
+                            </button>
                                                     </div>
                                                 </div>
                                                 <div class="row" id="items">
                                                     <div class="col-6">
-                                                        <button id="item3" routerLink="/ta-management/" routerLinkActive="active" type="submit">Office Hours</button>
+                                                        <button id="item3" routerLink="/coming-soon" routerLinkActive="active" type="submit">
+                              Office Hours
+                            </button>
                                                     </div>
                                                     <div class="col-6" id="item4">
-                                                        <button routerLink="/ta-management/" routerLinkActive="active" type="submit">TA Evaluation/Workload</button>
+                                                        <button routerLink="/coming-soon" routerLinkActive="active" type="submit">
+                              TA Evaluation/Workload
+                            </button>
                                                     </div>
                                                 </div>
                                                 <div class="row" id=" items">
                                                     <div class="col" id="item5">
-                                                        <button routerLink="/ta-management/" routerLinkActive="active" type="submit">Channel</button>
+                                                        <button routerLink="/coming-soon" routerLinkActive="active" type="submit">
+                              Channel
+                            </button>
                                                     </div>
                                                 </div>
                                                 <div id="exit">
-                                                    <a routerLink="/" routerLinkActive="active" role="button" type="submit">exit</a>
-                                                </div>
-                                            </form>
-                                        </div>
-                                        <!-- <div class="col-lg-7">
+                                                    <a routerLink="/" routerLinkActive="active" role="button" type="submit">Switch Course</a
+                          >
+                        </div>
+                      </form>
+                    </div>
+                    <!-- <div class="col-lg-7">
                                             <img style="height: 100%; width: 100%;" src="/assets/images/colorfulShapes.jpg" alt="">
 
                                         </div> -->
-                                    </div>
-
-                                </div>
-
-                            </div>
-                        </div>
-                    </div>
+                  </div>
                 </div>
+              </div>
             </div>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
 </div>
 <app-footer></app-footer>

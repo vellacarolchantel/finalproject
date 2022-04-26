@@ -5,3 +5,7 @@ export enum UserType {
   sysop = 0,
   ta = 3,
 }
+
+export function sortUserType(types: UserType[]) {
+  return types.sort((a, b) => a - b);
+}

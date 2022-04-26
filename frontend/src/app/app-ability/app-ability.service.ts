@@ -8,6 +8,7 @@ import {
 import { map } from 'rxjs/operators';
 import { UserType } from '../core/enums/user-type.enum';
 import { User } from '../core/models/user.model';
+import { AuthService } from '../core/services/auth.service';
 import { AppAction } from './enums/app-action.enum';
 import { AppSubject } from './enums/app-subject.enum';
 
@@ -27,17 +28,12 @@ export const detectAppSubjectType = (object: any) =>
 })
 export class AppAbilityService {
   constructor(
-    // private authService: AuthService,
+    private authService: AuthService,
     @Inject(Ability) public readonly appAbility: AppAbility
   ) {
-    // authService.privilegesChanges
-    //   .pipe(map((privileges) => privileges ?? []))
-    //   .subscribe((privileges) => {
-    //     this.updatePrivilege();
-    //     // console.log(
-    //     //   this.appAbility.can(Privileges.CAN_UPDATE_SELF_PROFILE, 'Profile')
-    //     // );
-    //   });
+    authService.loggedInUserObservable.subscribe((user) => {
+      this.updatePrivilege();
+    });
 
     this.updatePrivilege();
   }
@@ -46,32 +42,44 @@ export class AppAbilityService {
     const { can, cannot, rules, build } = new AbilityBuilder<AppAbility>(
       AppAbility
     );
-    // const isLoggedIn = this.authService.isLoggedIn;
-    const user: User = null as any;
-    // const privileges: Privileges[] = this.authService.privileges ?? [];
+    const isLoggedIn = this.authService.loggedIn;
+    const user: User = this.authService.loggedInUser;
 
-    // if (!isLoggedIn || !user) {
-    //   this.appAbility.update([]);
-    //   return;
-    // }
-    // super admin
+    if (!isLoggedIn || !user) {
+      this.appAbility.update([]);
+      return;
+    }
+
     if (user?.access?.includes(UserType.sysop)) {
       can('manage', 'all');
       this.appAbility.update(rules);
       return;
     }
 
-    // ta
-    if (user?.access?.includes(UserType.ta)) {
-      can(AppAction.read, AppSubject.rating);
-      can(AppAction.select, AppSubject.course);
+    // AppSubject.taAdministrationPage
+    if (user?.access?.includes(UserType.admin)) {
+      can(AppAction.view, AppSubject.taAdministrationPage);
     }
 
-    // student
-    if (user?.access?.includes(UserType.student)) {
-      can(AppAction.read, AppSubject.rating);
-      can(AppAction.add, AppSubject.rating);
+    // AppSubject.taManagementPage
+    if (
+      user?.access?.includes(UserType.admin) ||
+      user?.access?.includes(UserType.professor) ||
+      user?.access?.includes(UserType.ta)
+    ) {
+      can(AppAction.view, AppSubject.taManagementPage);
     }
+
+    // AppSubject.performance
+    if (user?.access?.includes(UserType.professor)) {
+      can(AppAction.view, AppSubject.performance);
+    }
+
+    // AppSubject.wishlist
+    if (user?.access?.includes(UserType.professor)) {
+      can(AppAction.view, AppSubject.wishlist);
+    }
+
     this.appAbility.update(rules);
     return;
   }

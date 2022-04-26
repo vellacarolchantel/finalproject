@@ -9,5 +9,8 @@ export class Course extends AppModel<Course> {
   TA_quota!: Number;
   instructor_name!: String;
   enrollment_num!: Number;
+  wishlist!: String[];
   tas!: Number[];
+  ta_names!: String[];
+
 }

@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AdminPageComponent } from './admin-page/admin-page.component';
 import { StudentPageComponent } from './student-page/student-page.component';
 import { ProfessorPageComponent } from './professor-page/professor-page.component';
-import { SysopPageComponent } from './sysop-page/sysop-page.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
 import { TaPageComponent } from './ta-page/ta-page.component';
 import { LandingPageComponent } from './landing-page/landing-page.component';
 import { RateATaComponent } from './rate-a-ta/rate-a-ta.component';
@@ -30,6 +30,7 @@ import { SysopSidebarComponent } from './sysop-tasks/sysop-sidebar/sysop-sidebar
 import { ManualAddComponent } from './sysop-tasks/manual-add/manual-add.component';
 import { ImportProfCourseComponent } from './sysop-tasks/import-prof-course/import-prof-course.component';
 import { ManageUsersComponent } from './sysop-tasks/manage-users/manage-users.component';
+import { ComingSoonComponent } from './coming-soon/coming-soon.component';
 
 const routes: Routes = [
   {
@@ -48,8 +49,8 @@ const routes: Routes = [
     canActivate: [AuthGuard],
   },
   {
-    path: 'sysop-page',
-    component: SysopPageComponent,
+    path: 'dashboard',
+    component: DashboardComponent,
     canActivate: [AuthGuard],
   },
   { path: 'ta-page', component: TaPageComponent, canActivate: [AuthGuard] },
@@ -58,7 +59,11 @@ const routes: Routes = [
     component: LandingPageComponent,
     canActivate: [NotAuthenticatedGuard],
   },
-  { path: 'register-page', component: RegisterPageComponent},
+  {
+    path: 'register-page',
+    component: RegisterPageComponent,
+    canActivate: [NotAuthenticatedGuard],
+  },
   {
     path: 'signout',
     component: LandingPageComponent,
@@ -92,20 +97,24 @@ const routes: Routes = [
       { path: 'select-course', component: SelectCourseComponent },
       {
         path: 'select-course-dashboard',
-        component: SelectCourseDashboardComponent,
-      },
+        component: SelectCourseDashboardComponent},
       { path: 'ta-wish-list', component: TaWishListComponent },
       { path: 'ta-perfomance-log', component: TaPerfomanceLogComponent },
     ],
   },
-  { path: 'sysop-tasks', component: SysopTasksComponent,
-children: [
-  { path: "manual-add", component: ManualAddComponent},
-  { path: "sysop-sidebar", component: SysopSidebarComponent},
-  { path: "import-prof-course", component: ImportProfCourseComponent},
-  { path: "manage-users", component: ManageUsersComponent}, 
-]},
-  { path: '**', redirectTo: '/landing-page', pathMatch: 'full' },
+  {
+    path: 'sysop-tasks',
+    component: SysopTasksComponent,
+    children: [
+      { path: 'manual-add', component: ManualAddComponent },
+      { path: 'sysop-sidebar', component: SysopSidebarComponent },
+      { path: 'import-prof-course', component: ImportProfCourseComponent },
+      { path: 'manage-users', component: ManageUsersComponent },
+    ],
+  },
+  { path: 'coming-soon', component: ComingSoonComponent},
+  { path: '**', redirectTo: '/landing-page', pathMatch: 'full' }
+  
 ];
 
 @NgModule({

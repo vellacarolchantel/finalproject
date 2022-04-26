@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { SysopPageComponent } from './sysop-page.component';
+import { ComingSoonComponent } from './coming-soon.component';
 
-describe('SysopPageComponent', () => {
-  let component: SysopPageComponent;
-  let fixture: ComponentFixture<SysopPageComponent>;
+describe('ComingSoonComponent', () => {
+  let component: ComingSoonComponent;
+  let fixture: ComponentFixture<ComingSoonComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ SysopPageComponent ]
+      declarations: [ ComingSoonComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(SysopPageComponent);
+    fixture = TestBed.createComponent(ComingSoonComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

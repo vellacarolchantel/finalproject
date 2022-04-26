@@ -1,21 +1,13 @@
-require("dotenv").config();
-const express = require("express");
-const app = express();
-const bodyParser = require('body-parser');
-const mongoose = require("mongoose");
-const User = require("./models/User.js");
-const Professor = require("./models/Professor.js");
-const mongodb = require("mongodb").MongoClient;
-const csvtojson = require("csvtojson");
+/* needs to be refactored to connect to the frontend
+        app.post('/rateTA', (req, res) => {
+            //res.send(req.body.ratingnumber);
+            //  res.send("Rating: " + req.body.ratingnumber + "<p></p>" + req.body.review);
+            res.sendFile(__dirname + '/manualtesting/dashboard.html');
 
-app.use(bodyParser.urlencoded({ extended: false }));
+        });
 
+        app.get('/rateTA', function (req, res) {
+            res.sendFile(__dirname + '/manualtesting/dashboard.html');
+        });
 
-app.post('/rateTA', (req, res) => {
-    res.send("Rating: " + req.body.ratingnumber + "<p></p>" + req.body.review);
-});
-
-app.get('/rateTA', function (req, res) {
-    res.sendFile(__dirname + '/dashboard.html');
-});
-
+*/

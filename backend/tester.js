@@ -284,8 +284,7 @@ app.post('/manualprof', (req, res) => {
     User.findOne({ first_name: names[0], last_name: names[1] }, function (err, profUser) {
         if (err) {
             console.log(err);
-            // I should add something that adds a new user if the Professor isn't there.
-        }
+ }
         else {
             // Looks in the User database and sets the Professor's ID as
             // the hashed value found there.

@@ -1,0 +1,21 @@
+<h1>Dashboard</h1>
+
+<form action="/rateTA" method="POST">
+    <label for="rating">Provide a rating from 0 to 5 (with 5 being the best)</label>
+    <select id="ratingsoptions" name="ratingnumber">
+        <option value="0">0</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+    </select>
+    <p></p>
+    <textarea name="review" rows="10" cols="50">Please leave a short review.</textarea>
+    <p></p>
+    <button>Submit</button>
+</form>
+
+<li><a href="/">Login</a></li>
+<li><a href="/register">Register</a></li>
+<li><a href="/logout">Logout</a></li>

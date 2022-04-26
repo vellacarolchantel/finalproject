@@ -1,21 +1,79 @@
 <h1>Manage Users</h1>
 
-<form action="/manageusers" method="POST">
-    <input name="course_name"
-           placeholder="COMP">
-    <input name="course_num"
-           placeholder="307">
+<h2>Add Users</h2>
+<form action="/addusers" method="POST">
+    <input name="first_name"
+           placeholder="First Name">
     <p></p>
-    <input name="term_month_year"
-           placeholder="Winter_Jan_2022">
-    <input name="instructor_assigned_name"
-           placeholder="Joseph_Vybihal">
-
+    <input name="last_name"
+           placeholder="Last Name">
     <p></p>
-
-    <button>Submit</button>
+    <input name="email" placeholder="Email"> <p></p>
+    <input name="student_id"
+           placeholder="Student ID">
+    <p></p>
+    <input name="username"
+           placeholder="Username">
+    <p></p>
+    <input name="password"
+           placeholder="Password">
+    <p></p>
+    <input name="course"
+           placeholder="Courses (COMP307 COMP308)">
+    <p></p>
+    <button>
+        Submit
+    </button>
 </form>
 
-<li><a href="/manageusers">Manage Users</a></li>
-<li><a href="/importCSV">Import CSV</a></li>
-<li><a href="/manual">Manual Add</a></li>
+<h2>Delete Users</h2>
+<form action="/deleteusers" method="POST">
+    <input name="first_name"
+           placeholder="Delete by First Name">
+    <p></p>
+    <input name="last_name"
+           placeholder="Delete by Last Name">
+    <p></p>
+    <input name="email" placeholder="Delete by Email"> <p></p>
+    <input name="student_id"
+           placeholder="Delete by Student ID">
+    <p></p>
+    <input name="username"
+           placeholder="Delete by Username">
+    <p></p>
+    <button>
+        Submit
+    </button>
+</form>
+
+
+<h2>Once you've selected a user, edit the information you want modified.</h2>
+<form action="/editusers" method="POST">
+    <input name="first_name"
+           placeholder="First Name">
+    <input name="last_name"
+           placeholder="Last Name">
+    <p></p>
+    <input name="email" placeholder="Email"
+    <input name="student_id"
+           placeholder="Student ID">
+    <p></p>
+    <input name="username"
+           placeholder="Username">
+    <input name="password"
+           placeholder="Password">
+    <p></p>
+    <input name="course"
+           placeholder="Courses (COMP307 COMP308)">
+    <p></p>
+    <button>
+        Submit
+    </button>
+</form>
+
+
+<li><a href="/dashboard">Dashboard</a></li>
+<li><a href="/logout">Logout</a></li>
+<li><a href="/manualcourse">Manual Add Course</a></li>
+<li><a href="/manualprof">Manual Add Professor</a></li>
+<li><a href="/importCSV">Import Using CSV</a></li>
